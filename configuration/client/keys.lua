@@ -74,6 +74,12 @@ local client_keys = awful.util.table.join(
 		{description = 'Switch windows', group = 'client'}
 	),
     awful.key(
+        {modkey}, 
+        "Tab", 
+        function() awful.spawn.with_shell('rofi -show window') end,
+        {description = 'Active Windows', group = 'client'}
+    ),  
+    awful.key(
         {modkey},
         'n',
         function(c)
