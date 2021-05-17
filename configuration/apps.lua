@@ -8,21 +8,21 @@ return {
 		-- Default terminal emulator
 		terminal = 'env alacritty',
 		-- Default web browser
-		web_browser = 'env brave-browser',
+		web_browser = 'env librewolf',
 		-- Default text editor
-		text_editor = 'geany',
+		text_editor = 'kate',
 		-- Default file manager
-		file_manager = 'nautilus',
+		file_manager = 'krusader',
 		-- Default media player
-		multimedia = 'celluloid',
+		multimedia = 'mpv --player-operation-mode=pseudo-gui',
 		-- Default game, can be a launcher like steam
 		game = 'env steam',
 		-- Default graphics editor
 		graphics = 'gimp',
 		-- Default sandbox
-		sandbox = 'virt-manager',
+		sandbox = 'virtualbox',
 		-- Default IDE
-		development = 'code',
+		mail = 'tutanota-desktop',
 		-- Default network manager
 		network_manager = 'nm-connection-editor',
 		-- Default bluetooth manager
@@ -30,9 +30,9 @@ return {
 		-- Default power manager (leaving this here as example)
 		power_manager = 'xfce4-power-manager',
 		-- Default GUI package manager
-		package_manager = 'synaptic',
+		package_manager = 'pamac-manager',
 		-- Default locker
-		lock = 'i3lock-fancy',
+		lock = '.config/awesome/scripts/lock.sh',
 		-- Default quake terminal
 		quake = 'env alacritty --title QuakeTerminal',
 		
@@ -61,26 +61,56 @@ return {
 		-- network applet for network connections
 		'nm-applet --indicator',
 		
-		-- Blueman applet
-		'blueman-applet',
+		-- Signal applet
+		'signal-desktop --start-in-tray',
+                       
+        -- Keepassxc
+        'keepassxc',     
+                    
+        -- syncthingtray
+        'syncthingtray --wait',
+                       
+        -- Random Wallpapers
+         '~/.config/awesome/scripts/wallpapers.sh',
+                       
+        -- tutanota-desktop
+        'tutanota-desktop',
+                       
+        -- nextcloud
+        'nextcloud --background',               
+    
+        -- vorta
+        'vorta',
+                       
+        -- xfce4-power-manager
+        'xfce4-power-manager',
+                       
+        -- krusader
+        'krusader',
+                       
+        -- sirikali
+        'sirikali', 
+                       
+        -- Delay Autostart
+        '~/.config/awesome/scripts/autorun_delay.sh',
 		
 		-- ibus keyboard daemon for keyboard management and emoji typing
 		'ibus-daemon --xim --daemonize',
 
 		-- scream audio sink for windows10 VM audio
-    	'scream-start',
+    --	'scream-start',
 
 		-- turn on numlock
     	'numlockx on',
 
 		-- start kdeconnect-indicator (script to handle awesome restarts)
-		utils_dir .. 'kdeconnect',
+		--utils_dir .. 'kdeconnect',
 
 		-- Music server
 		--'mpd',
 
 		-- Polkit and keyring (uncomment the one you use)
-		'/usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 & ' ..
+		'/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 & ' ..
 		--'/usr/bin/lxqt-policykit-agent & ' ..
 		--'/usr/lib/x86_64-linux-gnu/libexec/polkit-kde-authentication-agent-1 & ' ..
 		
@@ -95,12 +125,12 @@ return {
 		
 		-- Lockscreen timer
 		[[
-		xidlehook --not-when-fullscreen --not-when-audio --timer 600 \
-		"i3lock-fancy" ""
+		xidlehook --not-when-fullscreen --not-when-audio --timer 1200 \
+		".config/awesome/scripts/lock.sh" ""
 		]],
 
 		-- Set brightness to 50% on LVDS output because my laptop battery is bad
-		utils_dir .. 'laptop-brightness set 50',
+	--	utils_dir .. 'laptop-brightness set 50',
 		
 		-- Spawn "dirty" apps that can linger between sessions
 		-- It is suggested you copy the contents of awspawn into ~/.config/awesomestart
