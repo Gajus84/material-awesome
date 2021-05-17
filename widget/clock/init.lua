@@ -13,7 +13,7 @@ local create_clock = function(s)
 	if not military_mode then
 		clock_format = '<span font="Roboto Mono bold 9">%d.%m.%Y\n  %I:%M %p</span>'
 	else
-		clock_format = '<span font="Roboto Mono bold 9">%d.%m.%Y\n     %H:%M</span>'
+		clock_format = '<span font="Hack bold 8">%d.%m.%Y\n     %H:%M</span>'
 	end
 
 	s.clock_widget = wibox.widget.textclock(

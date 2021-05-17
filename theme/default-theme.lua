@@ -6,7 +6,7 @@ local dpi = beautiful.xresources.apply_dpi
 local gtk_variable = beautiful.gtk.get_theme_variables
 
 local theme_dir = filesystem.get_configuration_dir() .. '/theme'
-local titlebar_theme = 'stoplight'
+local titlebar_theme = 'lines'
 local titlebar_icon_path = theme_dir .. '/icons/titlebar/' .. titlebar_theme .. '/'
 local tip = titlebar_icon_path
 
@@ -136,7 +136,7 @@ local awesome_overrides = function(theme)
 	theme.border_radius = dpi(9)
 
 	-- Decorations
-	theme.useless_gap = dpi(4)
+	theme.useless_gap = dpi(1)
 	theme.client_shape_rectangle = gears.shape.rectangle
 	theme.client_shape_rounded = function(cr, width, height)
 		gears.shape.rounded_rect(cr, width, height, dpi(6))
@@ -177,9 +177,9 @@ local awesome_overrides = function(theme)
 	
 	-- Taglist
 	theme.taglist_bg_empty = theme.background .. '99'
-	theme.taglist_bg_occupied =  theme.background -- '#ffffff' .. '1A'
-	theme.taglist_bg_urgent = '#E91E63' .. '99'
-	theme.taglist_bg_focus = '#ffffff' .. '1A' --theme.background
+	theme.taglist_bg_occupied =  '#ffffff' .. '1A'
+	theme.taglist_bg_urgent = '#ffffff' .. '1A'
+	theme.taglist_bg_focus = '#314853'  --theme.background
 	theme.taglist_spacing = dpi(0)
 
 	-- Tasklist

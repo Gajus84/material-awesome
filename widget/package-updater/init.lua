@@ -32,7 +32,7 @@ local return_button = function()
 	local widget_button = wibox.widget {
 		{
 			widget,
-			margins = dpi(7),
+			margins = dpi(9),
 			widget = wibox.container.margin
 		},
 		widget = clickable_container
@@ -48,7 +48,7 @@ local return_button = function()
 					
 					if update_available then
 						awful.spawn(apps.default.package_manager .. ' --updates', false)
-					
+                        
 					else
 						awful.spawn(apps.default.package_manager, false)
 					
@@ -80,7 +80,7 @@ local return_button = function()
 
 	watch(
 		'pamac checkupdates',
-		60,
+		600,
 		function(_, stdout)
 			number_of_updates_available = tonumber(stdout:match('.-\n'):match('%d*'))
 			update_package = stdout
