@@ -59,7 +59,7 @@ ruled.client.connect_signal(
 				}
 			},
 			properties = {
-				titlebars_enabled = false
+				titlebars_enabled = true
 			}
 		}
 
@@ -74,7 +74,7 @@ ruled.client.connect_signal(
 				}
 			},
 			properties = {
-				titlebars_enabled = false,
+				titlebars_enabled = true,
 				floating = true,
 				above = true,
 				skip_decoration = true,
@@ -119,7 +119,7 @@ ruled.client.connect_signal(
 			id = 'terminals',
 			rule_any = {
 				name = {
-					'QuakeTerminal'
+                    'QuakeTerminal'
 				}
 			},
 			properties = {
@@ -144,23 +144,105 @@ ruled.client.connect_signal(
 				floating = true
 			}
 		}
-
-		-- Example rule for looking-glass (framebuffer relay for gpu passthrough)
-		-- This rule will move looking-glass to tag 5 and set that tag as the
-		-- active workspace when looking-glass is started
+		-- Custom Floats
 		ruled.client.append_rule {
-			id = 'looking-glass',
+			id = 'customfloats',
 			rule_any = {
 				class = {
-					'looking-glass-client'
+					'SiriKali',
+					'KeePassXC',
+                    'Signal'
+				}
+			},
+			properties = {
+				titlebars_enabled = true,
+				floating = true,
+				above = true,
+				skip_decoration = true,
+				placement = awful.placement.centered
+			}
+		}    
+		-- Browsers and chats
+		ruled.client.append_rule {
+			id = 'internet',
+			rule_any = {
+				class = {
+					'firefox',
+					'Tor Browser',
+					'discord',
+					'Chromium',
+					'Google-chrome',
+					'LibreWolf'
+				}
+			},
+			properties = {
+				tag = '1'
+			}
+		}
+    -- Terminal emulators
+		ruled.client.append_rule {
+			id = 'terminal',
+			rule_any = {
+				class = {
+					'URxvt',
+					'XTerm',
+					'UXTerm',
+					'kitty',
+					'K3rmit',
+					--'Alacritty',
+                    'Pamac-manager'
+				}
+			},
+			properties = {
+				switch_to_tags = true,
+				size_hints_honor = false,
+				titlebars_enabled = false
+			}
+		}  
+    -- Code
+		ruled.client.append_rule {
+			id = 'code',
+			rule_any = {
+				class = {
+					'kate'
 				}
 			},
 			properties = {
 				tag = '5',
 				switch_to_tags = true
 			}
+		}    
+        -- Sandbox
+		ruled.client.append_rule {
+			id = 'sandbox',
+			rule_any = {
+				class = {
+					--'opensnitch-ui'
+				}
+			},
+			properties = {
+				tag = '7',
+			--	switch_to_tags = true
+			}
 		}
-
+		-- Multimedia
+		ruled.client.append_rule {
+			id = 'multimedia',
+			rule_any = {
+				class = {
+					'vlc',
+					'mpv'
+				}
+			},
+			properties = {
+                tag = '2',
+                screen = 2,
+				kmaswitch_to_tags = true,
+			--	placement = awful.placement.centered,
+                titlebars_enabled = true,
+                switch_to_tags = true
+			}
+		}
 		-- Gaming
 		ruled.client.append_rule {
 			id = 'gaming',
@@ -180,15 +262,76 @@ ruled.client.connect_signal(
 				}
 			},
 			properties = {
-				tag = '4',
+				tag = '6',
 				skip_decoration = true,
 				switch_to_tags = true,
+                titlebars_enabled = false,
 				
 				-- Place the window in the center if the tag is set to floating mode
 				placement = awful.placement.centered
 			}
 		}
-
+		-- Mail Apps
+		ruled.client.append_rule {
+			id = 'mail',
+			rule_any = {
+				class = {
+					'Thunderbird',
+					'tutanota-desktop'
+				}
+			},
+			properties = {
+				tag = '9',
+				skip_decoration = true
+			}
+		}
+        -- Files
+		ruled.client.append_rule {
+			id = 'files',
+			rule_any = {
+				class = {
+					'krusader'
+				}
+			},
+			properties = {
+				tag = '3',
+                screen = 1,
+			--	switch_to_tags = true
+			}
+		}
+    	-- Floating
+		ruled.client.append_rule {
+			id       = 'floating',
+			rule_any = {
+				instance    = {
+					'file_progress',
+					'Popup',
+					'nm-connection-editor',
+				},
+				class = {
+					'scrcpy',
+					'Mugshot',
+					'Pulseeffects'
+				},
+				role    = {
+					'AlarmWindow',
+					'ConfigManager',
+					'pop-up',
+                    'Popup'       
+				}
+			},
+			properties = {
+				titlebars_enabled = true,
+				skip_decoration = true,
+				ontop = true,
+				floating = true,
+				focus = awful.client.focus.filter,
+				raise = true,
+				keys = client_keys,
+				buttons = client_buttons,
+				placement = awful.placement.centered
+			}
+		}
 		-- Graphics Editing
 		ruled.client.append_rule {
 			id = 'graphics',
@@ -201,7 +344,7 @@ ruled.client.connect_signal(
 			},
 			properties = {
 				tag = '8',
-				switch_to_tags = true,
+				switch_to_tags = true
 			}
 		}
 	end

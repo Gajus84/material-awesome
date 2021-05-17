@@ -14,7 +14,62 @@ local utils_dir = config_dir .. 'utilities/'
 
 -- Key bindings
 local global_keys = awful.util.table.join(
-
+    -- User
+    awful.key({ modkey, altkey   }, 
+        "u", 
+        function() awful.spawn.with_shell("alacritty -e $HOME/.update_pp") end,
+        {description = "Update", group = "user"}
+    ),
+     awful.key({ modkey, altkey   }, 
+        "c", 
+        function() awful.spawn.with_shell("$HOME/Documents/daten/Programme/ctbrec/ctbrec.sh") end,
+        {description = "CRBR", group = "user"}
+    ),
+    awful.key({ modkey, altkey   }, 
+        "h", 
+        function() awful.spawn.with_shell("ghb") end,
+        {description = "Handbrake", group = "user"}
+    ),
+    awful.key({ modkey, 'Control'   }, 
+        "h", 
+        function() awful.spawn.with_shell("alacritty -e htop") end,
+        {description = "htop", group = "user"}
+    ),  
+      awful.key({ modkey, altkey   }, 
+        "d", 
+        function() awful.spawn.with_shell("avidemux_qt5") end,
+        {description = "Avidemux", group = "user"}
+    ), 
+     awful.key({ modkey, altkey   }, 
+        "b", 
+        function() awful.spawn.with_shell("sh /opt/jameica/jameica.sh") end,
+        {description = "Hibiscus", group = "user"}
+    ),   
+         awful.key({ modkey, altkey   }, 
+        "p", 
+        function() awful.spawn.with_shell("$HOME/Programme/portfolio/PortfolioPerformance") end,
+        {description = "Portfolio Performance", group = "user"}
+    ),
+      awful.key({ modkey, altkey   }, 
+        "t", 
+        function() awful.spawn.with_shell("$HOME/.speedtest") end,
+        {description = "Speedtest", group = "user"}
+    ),
+      awful.key({ modkey, 'Control'   }, 
+        "b", 
+        function() awful.spawn.with_shell("alacritty -e bashtop") end,
+        {description = "Bashtop", group = "user"}
+    ),   
+     awful.key({ modkey, altkey   }, 
+        "z", 
+        function() awful.spawn.with_shell("alacritty -e ~/.hardcode_tray") end,
+        {description = "Hardcode-Tray", group = "user"}
+    ),   
+    awful.key({ modkey, altkey, 'Control' }, 
+        "h", 
+        function() awful.spawn.with_shell("alacritty -e ~/.config/hardcode-fixer/fix.sh") end,
+        {description = "Hardcode-Fixer", group = "user"}
+    ),   
 	-- Hotkeys
 	awful.key(
 		{modkey}, 
@@ -22,6 +77,11 @@ local global_keys = awful.util.table.join(
 		hotkeys_popup.show_help, 
 		{description = 'show help', group = 'awesome'}
 	),
+    awful.key({ 'Control', modkey   }, 
+        "c", 
+        function() awful.spawn.with_shell("kate ~/.config/awesome/rc.lua") end,
+        {description = "Show Config", group = "awesome"}
+    ),      
 	awful.key({modkey, 'Control'}, 
 		'r', 
 		awesome.restart, 
@@ -33,7 +93,12 @@ local global_keys = awful.util.table.join(
 		awesome.quit, 
 		{description = 'quit awesome', group = 'awesome'}
 	),
-	awful.key(
+     awful.key({ 'Control', altkey   }, 
+        "o", 
+        function() awful.spawn.with_shell("$HOME/.config/awesome/scripts/picom-toggle.sh") end,
+        {description = "Picom toggle", group = "hotkeys"}
+    ),
+    awful.key(
 		{altkey, 'Shift'},
 		'l',
 		function()
@@ -189,112 +254,6 @@ local global_keys = awful.util.table.join(
 		{description = 'restore minimized', group = 'screen'}
 	),
 	awful.key(
-		{},
-		'XF86MonBrightnessUp',
-		function()
-			awful.spawn(utils_dir .. 'laptop-brightness add 10', false)
-			awesome.emit_signal('widget::brightness')
-			awesome.emit_signal('module::brightness_osd:show', true)
-		end,
-		{description = 'increase brightness by 10%', group = 'hotkeys'}
-	),
-	awful.key(
-		{},
-		'XF86MonBrightnessDown',
-		function()
-			awful.spawn(config_dir .. 'laptop-brightness sub 10', false)
-			awesome.emit_signal('widget::brightness')
-			awesome.emit_signal('module::brightness_osd:show', true)
-		end,
-		{description = 'decrease brightness by 10%', group = 'hotkeys'}
-	),
-	-- ALSA volume control
-	awful.key(
-		{},
-		'XF86AudioRaiseVolume',
-		function()
-			awful.spawn('amixer -D pulse sset Master 5%+', false)
-			awesome.emit_signal('widget::volume')
-			awesome.emit_signal('module::volume_osd:show', true)
-		end,
-		{description = 'increase volume up by 5%', group = 'hotkeys'}
-	),
-	awful.key(
-		{},
-		'XF86AudioLowerVolume',
-		function()
-			awful.spawn('amixer -D pulse sset Master 5%-', false)
-			awesome.emit_signal('widget::volume')
-			awesome.emit_signal('module::volume_osd:show', true)
-		end,
-		{description = 'decrease volume up by 5%', group = 'hotkeys'}
-	),
-	awful.key(
-		{},
-		'XF86AudioMute',
-		function()
-			awful.spawn('amixer -D pulse set Master 1+ toggle', false)
-		end,
-		{description = 'toggle mute', group = 'hotkeys'}
-	),
-	awful.key(
-		{},
-		'XF86AudioNext',
-		function()
-			awful.spawn('mpc next', false)
-		end,
-		{description = 'next music', group = 'hotkeys'}
-	),
-	awful.key(
-		{},
-		'XF86AudioPrev',
-		function()
-			awful.spawn('mpc prev', false)
-		end,
-		{description = 'previous music', group = 'hotkeys'}
-	),
-	awful.key(
-		{},
-		'XF86AudioPlay',
-		function()
-			awful.spawn('mpc toggle', false)
-		end,
-		{description = 'play/pause music', group = 'hotkeys'}
-
-	),
-	awful.key(
-		{},
-		'XF86AudioMicMute',
-		function()
-			awful.spawn('amixer set Capture toggle', false)
-		end,
-		{description = 'mute microphone', group = 'hotkeys'}
-	),
-	awful.key(
-		{},
-		'XF86PowerDown',
-		function()
-			--
-		end,
-		{description = 'shutdown skynet', group = 'hotkeys'}
-	),
-	awful.key(
-		{},
-		'XF86PowerOff',
-		function()
-			awesome.emit_signal('module::exit_screen:show')
-		end,
-		{description = 'toggle exit screen', group = 'hotkeys'}
-	),
-	awful.key(
-		{},
-		'XF86Display',
-		function()
-			awful.spawn.single_instance('arandr', false)
-		end,
-		{description = 'arandr', group = 'hotkeys'}
-	),
-	awful.key(
 		{modkey, 'Shift'},
 		'q',
 		function()
@@ -444,6 +403,7 @@ local global_keys = awful.util.table.join(
 		'Return',
 		function()
 			awful.spawn(apps.default.terminal)
+            awful.layout.inc(2)
 		end,
 		{description = 'open default terminal', group = 'launcher'}
 	),
@@ -452,11 +412,12 @@ local global_keys = awful.util.table.join(
 		'x',
 		function()
 			awful.spawn(apps.default.terminal)
+            awful.layout.inc(2)
 		end,
 		{description = 'open default terminal', group = 'launcher'}
 	),
 	awful.key(
-		{modkey, 'Shift'}, 
+		{modkey, altkey}, 
 		'e',
 		function()
 			awful.spawn(apps.default.file_manager)
@@ -464,7 +425,7 @@ local global_keys = awful.util.table.join(
 		{description = 'open default file manager', group = 'launcher'}
 	),
 	awful.key(
-		{modkey, 'Shift'}, 
+		{modkey, altkey}, 
 		'f',
 		function()
 			awful.spawn(apps.default.web_browser)
@@ -472,34 +433,16 @@ local global_keys = awful.util.table.join(
 		{description = 'open default web browser', group = 'launcher'}
 	),
 	awful.key(
-		{'Control', 'Shift'}, 
-		'Escape',
+		{ modkey, altkey}, 
+		'g',
 		function()
-			awful.spawn(apps.default.terminal .. ' ' .. 'htop')
+			awful.spawn('chromium')
 		end,
-		{description = 'open system monitor', group = 'launcher'}
+		{description = 'Open Chromium', group = 'launcher'}
 	),
 	awful.key(
 		{altkey}, 
 		'space',
-		function()
-			local focused = awful.screen.focused()
-
-			if focused.left_panel then
-				focused.left_panel:hide_dashboard()
-				focused.left_panel.opened = false
-			end
-			if focused.right_panel then
-				focused.right_panel:hide_dashboard()
-				focused.right_panel.opened = false
-			end
-			awful.spawn(apps.default.rofi_appmenu, false)
-		end,
-		{description = 'open application drawer', group = 'launcher'}
-	),
-	awful.key(
-		{}, 
-		'XF86Launch1',
 		function()
 			local focused = awful.screen.focused()
 

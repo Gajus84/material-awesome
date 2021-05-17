@@ -2,6 +2,7 @@ configuration {
     font: "Inter Regular 10";
     sidebar-mode: true;
     show-icons: true;
+    icon-theme: "Flat-Remix-Blue-Dark";
     fullscreen: false;
     threads: 0;
     /*matching: "fuzzy";*/
