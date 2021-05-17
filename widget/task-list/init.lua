@@ -209,6 +209,13 @@ local tasklist_buttons = awful.util.table.join(
 			awful.client.focus.byidx(1)
 		end
 	),
+   awful.button(
+		{},
+		3, 
+    function()
+			client.focus:move_to_screen()
+		end  
+    ),
 	awful.button(
 		{},
 		5,
