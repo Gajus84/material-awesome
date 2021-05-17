@@ -9,5 +9,5 @@ function run {
   fi
 }
 sleep 20
-run opensnitch-ui
-
+run opensnitch-ui &
+run kdeconnect-indicator &
