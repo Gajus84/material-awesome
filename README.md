@@ -1,5 +1,11 @@
 ## Material and Mouse driven theme for [AwesomeWM 4.3-git](https://github.com/awesomeWM/awesome)
 
+#### Customized for personal taste from [HikariKnight](https://github.com/HikariKnight/material-awesome) version. Core change is adjusting the panels to my Dual-Screen setup. Now the second screen will have a Sidepanel only, without an additional clock etc. Also the Sidepanel is showing the respective tags of the screen and a Icon-only tasklist.
+
+
+
+#####################################################################################################################################################################
+
 ### Original work by [PapyElGringo](https://github.com/PapyElGringo), updated framework (and what this if forked from) by [manilarome](https://github.com/manilarome). PapyElGringo is now working on [Material-Shell](https://github.com/material-shell/material-shell) instead.
 
 
