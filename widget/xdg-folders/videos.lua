@@ -35,6 +35,11 @@ local create_widget = function()
 				nil,
 				function()
 					awful.spawn.with_shell('xdg-open $(xdg-user-dir VIDEOS)')
+                local focused = awful.screen.focused()
+				local tag = focused.tags[3]
+				if tag then
+					tag:view_only()
+				end
 				end
 			)
 		)
