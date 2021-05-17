@@ -12,11 +12,26 @@ local tags = {
 		layout = awful.layout.suit.max,
 		gap = beautiful.useless_gap
 	},
-	{
+    {
+		type = 'multimedia',
+		icon = icons.multimedia,
+		default_app = apps.default.multimedia,
+		gap = beautiful.useless_gap,
+		layout = awful.layout.suit.max,
+		gap = 0
+	},
+    {
+		type = 'files',
+		icon = icons.file_manager,
+		default_app = apps.default.file_manager,
+		gap = beautiful.useless_gap,
+		layout = awful.layout.suit.max
+	},
+    {
 		type = 'terminal',
 		icon = icons.terminal,
 		default_app = apps.default.terminal,
-		layout = awful.layout.suit.max,
+		layout = awful.layout.suit.tile,
 		gap = beautiful.useless_gap
 	},
 	{
@@ -41,21 +56,6 @@ local tags = {
 		gap = 0
 	},
 	{
-		type = 'files',
-		icon = icons.file_manager,
-		default_app = apps.default.file_manager,
-		gap = beautiful.useless_gap,
-		layout = awful.layout.suit.tile
-	},
-	{
-		type = 'multimedia',
-		icon = icons.multimedia,
-		default_app = apps.default.multimedia,
-		gap = beautiful.useless_gap,
-		layout = awful.layout.suit.max,
-		gap = 0
-	},
-	{
 		type = 'graphics',
 		icon = icons.graphics,
 		default_app = apps.default.graphics,
@@ -64,8 +64,8 @@ local tags = {
 	},
 	{
 		type = 'any',
-		icon = icons.development,
-		default_app = apps.default.development,
+		icon = icons.mail,
+		default_app = apps.default.mail,
 		gap = beautiful.useless_gap,
 		layout = awful.layout.suit.max
 	}
