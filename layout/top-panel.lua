@@ -11,7 +11,7 @@ local top_panel = function(s, offset)
 
 	local offsetx = 0
 	if offset == true then
-		offsetx = dpi(45)
+		offsetx = dpi(40)
 	end
 
 	local panel = wibox
@@ -19,7 +19,7 @@ local top_panel = function(s, offset)
 		ontop = true,
 		screen = s,
 		type = 'dock',
-		height = dpi(45),
+		height = dpi(40),
 		width = s.geometry.width - offsetx,
 		x = s.geometry.x + offsetx,
 		y = s.geometry.y,
@@ -30,7 +30,7 @@ local top_panel = function(s, offset)
 
 	panel:struts
 	{
-		top = dpi(45)
+		top = dpi(40)
 	}
 
 	panel:connect_signal(
@@ -44,7 +44,7 @@ local top_panel = function(s, offset)
 	)
 
 	s.systray = wibox.widget {
-		visible = true,
+		visible = false,
 		base_size = dpi(20),
 		horizontal = true,
 		screen = 'primary',
@@ -56,11 +56,11 @@ local top_panel = function(s, offset)
 	local add_button 		= require('widget.open-default-app')(s)
 	s.tray_toggler  		= require('widget.tray-toggle')
 	s.updater 				= require('widget.package-updater')()
-	s.screen_rec 			= require('widget.screen-recorder')()
-	s.mpd       			= require('widget.mpd')()
-	s.bluetooth   			= require('widget.bluetooth')()
-	s.battery     			= require('widget.battery')()
-	s.network       		= require('widget.network')()
+--	s.screen_rec 			= require('widget.screen-recorder')()
+	--s.mpd       			= require('widget.mpd')()
+	--s.bluetooth   			= require('widget.bluetooth')()
+--	s.battery     			= require('widget.battery')()
+	--s.network       		= require('widget.network')()
 	s.info_center_toggle	= require('widget.info-center-toggle')()
 
 	panel : setup {
@@ -84,12 +84,12 @@ local top_panel = function(s, offset)
 				widget = wibox.container.margin
 			},
 			s.tray_toggler,
-			--s.updater,
+			s.updater,
 			--s.screen_rec,
 			--s.mpd,
 			--s.network,
 			--s.bluetooth,
-			s.battery,
+			--s.battery,
 			clock,
 			layout_box,
 			s.info_center_toggle
