@@ -10,6 +10,14 @@ return awful.util.table.join(
 			c:raise()
 		end
 	),
+    awful.button(
+		{},
+		2,
+		function(c)
+			c.fullscreen = not c.fullscreen
+			c:raise()
+		end
+	),
 	awful.button(
 		{modkey},
 		1,
