@@ -50,16 +50,17 @@ panel : setup {
 		expand = 'none',
 		{
 			layout = wibox.layout.fixed.vertical,
+            spacing = dpi(1),
 			layout_box,
-            tag_list2(s)
+            tag_list2(s),
+            add_button
 			
 		},
 		nil, 
 		{
 			layout = wibox.layout.fixed.vertical,
 		--	spacing = dpi(1),
-            task_list2(s),
-            add_button
+            task_list2(s)            
 		}
 	}
 

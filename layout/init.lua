@@ -2,6 +2,7 @@ local awful = require('awful')
 local left_panel = require('layout.left-panel')
 local top_panel = require('layout.top-panel')
 local right_panel = require('layout.right-panel')
+local side_panel = require('layout.side-panel')
 
 -- Create a wibox panel for each screen and add it
 screen.connect_signal(
@@ -10,10 +11,11 @@ screen.connect_signal(
 		if s.index == 1 then
 			s.left_panel = left_panel(s)
 			s.top_panel = top_panel(s, true)
+            s.right_panel = right_panel(s)
 		else
-			s.top_panel = top_panel(s, false)
-		end
-		s.right_panel = right_panel(s)
+ 			s.top_panel = side_panel(s)
+        end
+		
 		s.right_panel_show_again = false
 	end
 )
@@ -26,7 +28,7 @@ function update_bars_visibility()
 			local fullscreen = s.selected_tag.fullscreen_mode
 			-- Order matter here for shadow
 			s.top_panel.visible = not fullscreen
-			if s.left_panel then
+            if s.left_panel then
 				s.left_panel.visible = not fullscreen
 			end
 			if s.right_panel then
