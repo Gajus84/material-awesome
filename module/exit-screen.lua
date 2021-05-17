@@ -155,6 +155,11 @@ local suspend_command = function()
 	awful.spawn.with_shell(apps.default.lock .. ' & systemctl suspend')
 end
 
+local hibernate_command = function()
+	awesome.emit_signal('module::exit_screen:hide')
+	awful.spawn.with_shell(apps.default.lock .. ' & systemctl hibernate')
+end
+
 local logout_command = function()
 	awesome.quit()
 end
@@ -177,6 +182,7 @@ end
 local poweroff = build_power_button('Shutdown', icons.power, poweroff_command)
 local reboot = build_power_button('Restart', icons.restart, reboot_command)
 local suspend = build_power_button('Sleep', icons.sleep, suspend_command)
+local hibernate = build_power_button('Hibernate', icons.hibernate, hibernate_command)
 local logout = build_power_button('Logout', icons.logout, logout_command)
 local lock = build_power_button('Lock', icons.lock, lock_command)
 
@@ -265,6 +271,7 @@ local create_exit_screen = function(s)
 							poweroff,
 							reboot,
 							suspend,
+                            hibernate,
 							logout,
 							lock,
 							layout = wibox.layout.fixed.horizontal
@@ -302,6 +309,9 @@ local exit_screen_grabber = awful.keygrabber {
 	keypressed_callback = function(self, mod, key, command) 
 		if key == 's' then
 			suspend_command()
+
+        elseif key == 'h' then
+			hibernate_command()
 
 		elseif key == 'e' then
 			logout_command()
