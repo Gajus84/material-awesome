@@ -67,8 +67,13 @@ return function(s, panel, action_bar_width)
 			require("widget.xdg-folders")(),
 			layout = wibox.layout.fixed.vertical,
 		},
-		nil,
-		require('widget.search-apps')()
+        nil,
+        {
+		layout = wibox.layout.fixed.vertical,
+		spacing = dpi(5),
+		require('widget.search-apps')(),
+        require('widget.end-session-button')()
 		--open_dashboard_button
-	}
+        }
+    }
 end

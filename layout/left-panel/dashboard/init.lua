@@ -71,7 +71,7 @@ return function(_, panel)
 
 			},
 			nil,
-			require('widget.end-session')(),
+			--require('widget.end-session')(),
 			layout = wibox.layout.align.vertical
 		},
 		margins = dpi(16),
