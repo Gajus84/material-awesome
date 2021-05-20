@@ -10,7 +10,7 @@ return {
 		-- Default web browser
 		web_browser = 'env librewolf',
 		-- Default text editor
-		text_editor = 'kate',
+		text_editor = 'featherpad',
 		-- Default file manager
 		file_manager = 'krusader',
 		-- Default media player
@@ -81,6 +81,9 @@ return {
     
         -- vorta
         'vorta',
+		
+		-- pnmixer
+		'pnmixer',
                        
         -- xfce4-power-manager
         'xfce4-power-manager',

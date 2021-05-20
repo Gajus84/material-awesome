@@ -52,7 +52,7 @@ ruled.client.connect_signal(
 			id 	= 'titlebars',
 			rule_any = {
 				type = {
-					'normal',
+					--'normal',
 					'dialog',
 					'modal',
 					'utility'
@@ -94,6 +94,22 @@ ruled.client.connect_signal(
 				above = true,
 				skip_decoration = true,
 				placement = awful.placement.centered
+			}
+		}
+
+        -- Albert
+		ruled.client.append_rule {
+			id = 'modal',
+			rule_any = {
+				class = {'albert'}
+			},
+			properties = {
+				titlebars_enabled = false,
+				floating = true,
+				above = true,
+				skip_decoration = true,
+                border_width = 0,
+				placement = awful.placement.top
 			}
 		}
 
@@ -151,7 +167,9 @@ ruled.client.connect_signal(
 				class = {
 					'SiriKali',
 					'KeePassXC',
-                    'Signal'
+					'Qalculate-gtk',
+                    'Signal',
+					'Gufw.py'
 				}
 			},
 			properties = {
@@ -204,7 +222,9 @@ ruled.client.connect_signal(
 			id = 'code',
 			rule_any = {
 				class = {
-					'kate'
+					'kate',
+					'featherpad',
+					'VSCodium'
 				}
 			},
 			properties = {

@@ -17,7 +17,7 @@ local global_keys = awful.util.table.join(
     -- User
     awful.key({ modkey, altkey   }, 
         "u", 
-        function() awful.spawn.with_shell("alacritty -e $HOME/.update_pp") end,
+        function() awful.spawn.with_shell("alacritty -e ~/.config/awesome/scripts/update_pp.sh") end,
         {description = "Update", group = "user"}
     ),
      awful.key({ modkey, altkey   }, 
@@ -52,7 +52,7 @@ local global_keys = awful.util.table.join(
     ),
       awful.key({ modkey, altkey   }, 
         "t", 
-        function() awful.spawn.with_shell("$HOME/.speedtest") end,
+        function() awful.spawn.with_shell("~/.config/awesome/scripts/speedtest.sh") end,
         {description = "Speedtest", group = "user"}
     ),
       awful.key({ modkey, 'Control'   }, 
@@ -62,7 +62,7 @@ local global_keys = awful.util.table.join(
     ),   
      awful.key({ modkey, altkey   }, 
         "z", 
-        function() awful.spawn.with_shell("alacritty -e ~/.hardcode_tray") end,
+        function() awful.spawn.with_shell("alacritty -e ~/.config/awesome/scripts/hardcode_tray.sh") end,
         {description = "Hardcode-Tray", group = "user"}
     ),   
     awful.key({ modkey, altkey, 'Control' }, 
@@ -79,7 +79,7 @@ local global_keys = awful.util.table.join(
 	),
     awful.key({ 'Control', modkey   }, 
         "c", 
-        function() awful.spawn.with_shell("kate ~/.config/awesome/rc.lua") end,
+        function() awful.spawn.with_shell("vscodium ~/.config/awesome/") end,
         {description = "Show Config", group = "awesome"}
     ),      
 	awful.key({modkey, 'Control'}, 
