@@ -238,7 +238,7 @@ ruled.client.connect_signal(
 				class = {
 					'kate',
 					'featherpad',
-					'VSCodium'
+					'VSCodium',
 					'looking-glass-client',
 					'Virt-manager'
 				}
