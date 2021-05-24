@@ -34,6 +34,7 @@ require('configuration.client')
 require('configuration.root')
 require('configuration.tags')
 root.keys(require('configuration.keys.global'))
+--root.keys(require('configuration.keys.user'))
 
 -- ░█▄█░█▀█░█▀▄░█░█░█░░░█▀▀░█▀▀
 -- ░█░█░█░█░█░█░█░█░█░░░█▀▀░▀▀█
@@ -76,3 +77,10 @@ screen.connect_signal(
 		end
 	end
 )
+
+awful.spawn.with_shell(
+	'if (xrdb -query | grep -q "^awesome\\.started:\\s*true$"); then exit; fi;' ..
+	'xrdb -merge <<< "awesome.started:true";' ..
+	-- list each of your autostart commands, followed by ; inside single quotes, followed by ..
+	'systemctl --user start autostart.target'
+	)

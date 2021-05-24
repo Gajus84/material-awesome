@@ -12,7 +12,7 @@ return {
 		-- Default text editor
 		text_editor = 'featherpad',
 		-- Default file manager
-		file_manager = 'krusader',
+		file_manager = 'doublecmd',
 		-- Default media player
 		multimedia = 'mpv --player-operation-mode=pseudo-gui',
 		-- Default game, can be a launcher like steam
@@ -22,13 +22,13 @@ return {
 		-- Default sandbox
 		sandbox = 'virtualbox',
 		-- Default IDE
-		mail = 'tutanota-desktop',
+		mail = 'thunderbird',
 		-- Default network manager
 		network_manager = 'nm-connection-editor',
 		-- Default bluetooth manager
 		bluetooth_manager = 'blueman-manager',
 		-- Default power manager (leaving this here as example)
-		power_manager = 'xfce4-power-manager',
+		power_manager = 'mate-power-manager',
 		-- Default GUI package manager
 		package_manager = 'pamac-manager',
 		-- Default locker
@@ -59,52 +59,22 @@ return {
 		config_dir .. '/configuration/picom.conf',
 
 		-- network applet for network connections
-		'nm-applet --indicator',
-		
-		-- Signal applet
-		'signal-desktop --start-in-tray',
-                       
-        -- Keepassxc
-        'keepassxc',     
-                    
-        -- syncthingtray
-        'syncthingtray --wait',
-                       
+		--'nm-applet --indicator',
+				                      
         -- Random Wallpapers
          '~/.config/awesome/scripts/wallpapers.sh',
-                       
-        -- tutanota-desktop
-        'tutanota-desktop',
-                       
-        -- nextcloud
-        'nextcloud --background',               
-    
-        -- vorta
-        'vorta',
-		
-		-- pnmixer
-		'pnmixer',
-                       
-        -- xfce4-power-manager
-        'xfce4-power-manager',
-                       
-        -- krusader
-        'krusader',
-                       
-        -- sirikali
-        'sirikali', 
-                       
+                                            
         -- Delay Autostart
         '~/.config/awesome/scripts/autorun_delay.sh',
 		
 		-- ibus keyboard daemon for keyboard management and emoji typing
 		'ibus-daemon --xim --daemonize',
 
-		-- scream audio sink for windows10 VM audio
-    --	'scream-start',
+		-- Ranger
+    	'alacritty --class=ranger,ranger --title=Ranger -e ranger',
 
 		-- turn on numlock
-    	'numlockx on',
+    	--'numlockx on',
 
 		-- start kdeconnect-indicator (script to handle awesome restarts)
 		--utils_dir .. 'kdeconnect',
@@ -124,14 +94,8 @@ return {
 		'xrdb $HOME/.Xresources',
 		
 		-- Audio equalizer
-		--'pulseeffects --gapplication-service',
+		--'pulseeffects --gapplication-service',			
 		
-		-- Lockscreen timer
-		[[
-		xidlehook --not-when-fullscreen --not-when-audio --timer 1200 \
-		".config/awesome/scripts/lock.sh" ""
-		]],
-
 		-- Set brightness to 50% on LVDS output because my laptop battery is bad
 	--	utils_dir .. 'laptop-brightness set 50',
 		
