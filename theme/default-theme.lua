@@ -38,7 +38,7 @@ local awesome_overrides = function(theme)
 
 	theme.bg_normal = theme.background
 	theme.bg_focus = '#5a5a5a'
-	theme.bg_urgent = '#3F3F3F'
+	theme.bg_urgent = '#1761AB'
 
 	-- System tray
 	theme.bg_systray = theme.background
