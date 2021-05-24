@@ -8,6 +8,8 @@ function run {
     $@&
   fi
 }
-sleep 20
+sleep 30
 run opensnitch-ui &
+sleep 5
 run kdeconnect-indicator &
+

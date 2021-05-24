@@ -10,6 +10,9 @@ THEME="wallpapers"
 # Awesome conf path
 AWPATH="$HOME/.config/awesome/theme/$THEME"
 # image should have absolute path to image folder
+
+sleep 10
+
 IMAGE1=$(find $HOME/Pictures/Wallpapers/ -type f -name "*.png" -o -name "*.jpeg" -o -name "*.jpg"| shuf -n 1 | sed 's/\ /\\ /g')
 IMAGE2=$(find $HOME/Pictures/Wallpapers/ -type f -name "*.png" -o -name "*.jpeg" -o -name "*.jpg"| shuf -n 1 | sed 's/\ /\\ /g')
 IMAGE3=$(find $HOME/Pictures/Wallpapers/ -type f -name "*.png" -o -name "*.jpeg" -o -name "*.jpg"| shuf -n 1 | sed 's/\ /\\ /g')

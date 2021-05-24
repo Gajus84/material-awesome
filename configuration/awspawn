@@ -11,7 +11,7 @@
 # is intended to be a copy of this file (without the "$HOME/.config/awesomestart" line)
 # to allow out of git tree autostart programs
 APPS=(
-    radeon-profile
+    #radeon-profile
     $HOME/.config/awesomestart
     )
 
