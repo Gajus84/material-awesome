@@ -160,7 +160,6 @@ ruled.client.connect_signal(
 				floating = true
 			}
 		}
-
 		-- Custom Floats
 		ruled.client.append_rule {
 			id = 'customfloats',
@@ -183,17 +182,17 @@ ruled.client.connect_signal(
 				sticky = true
 			}
 		}    
-		-- Ranger
-		ruled.client.append_rule {
-			id = 'ranger',
-			rule_any = {
-				instance = {'ranger'}
-			},
-			properties = {
-				tag = '3',
-				screen = 2
-			}
+	-- Ranger
+	ruled.client.append_rule {
+		id = 'ranger',
+		rule_any = {
+			instance = {'ranger'}
+		},
+		properties = {
+			tag = '3',
+			screen = 2
 		}
+	}
 		-- Browsers and chats
 		ruled.client.append_rule {
 			id = 'internet',
@@ -247,14 +246,13 @@ ruled.client.connect_signal(
 				tag = '5',
 				switch_to_tags = true
 			}
-		}  
-
+		}    
         -- Sandbox
 		ruled.client.append_rule {
 			id = 'sandbox',
 			rule_any = {
 				class = {
-				
+
 				}
 			},
 			properties = {
@@ -280,7 +278,6 @@ ruled.client.connect_signal(
                 switch_to_tags = true
 			}
 		}
-
 		-- Gaming
 		ruled.client.append_rule {
 			id = 'gaming',
@@ -309,7 +306,6 @@ ruled.client.connect_signal(
 				placement = awful.placement.centered
 			}
 		}
-
 		-- Mail Apps
 		ruled.client.append_rule {
 			id = 'mail',
