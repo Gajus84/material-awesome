@@ -160,6 +160,7 @@ ruled.client.connect_signal(
 				floating = true
 			}
 		}
+
 		-- Custom Floats
 		ruled.client.append_rule {
 			id = 'customfloats',
@@ -244,7 +245,8 @@ ruled.client.connect_signal(
 				tag = '5',
 				switch_to_tags = true
 			}
-		}    
+		}  
+
         -- Sandbox
 		ruled.client.append_rule {
 			id = 'sandbox',
@@ -276,6 +278,7 @@ ruled.client.connect_signal(
                 switch_to_tags = true
 			}
 		}
+
 		-- Gaming
 		ruled.client.append_rule {
 			id = 'gaming',
@@ -304,6 +307,7 @@ ruled.client.connect_signal(
 				placement = awful.placement.centered
 			}
 		}
+		
 		-- Mail Apps
 		ruled.client.append_rule {
 			id = 'mail',
