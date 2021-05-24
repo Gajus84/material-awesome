@@ -239,6 +239,8 @@ ruled.client.connect_signal(
 					'kate',
 					'featherpad',
 					'VSCodium'
+					'looking-glass-client',
+					'Virt-manager'
 				}
 			},
 			properties = {
@@ -307,7 +309,7 @@ ruled.client.connect_signal(
 				placement = awful.placement.centered
 			}
 		}
-		
+
 		-- Mail Apps
 		ruled.client.append_rule {
 			id = 'mail',
