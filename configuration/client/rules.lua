@@ -169,6 +169,7 @@ ruled.client.connect_signal(
 					'KeePassXC',
 					'Qalculate-gtk',
                     'Signal',
+					'opensnitch-ui',
 					'Gufw.py'
 				}
 			},
@@ -177,9 +178,21 @@ ruled.client.connect_signal(
 				floating = true,
 				above = true,
 				skip_decoration = true,
-				placement = awful.placement.centered
+				placement = awful.placement.centered,
+				sticky = true
 			}
 		}    
+		-- Ranger
+		ruled.client.append_rule {
+			id = 'ranger',
+			rule_any = {
+				instance = {'ranger'}
+			},
+			properties = {
+				tag = '3',
+				screen = 2
+			}
+		}
 		-- Browsers and chats
 		ruled.client.append_rule {
 			id = 'internet',
@@ -237,7 +250,7 @@ ruled.client.connect_signal(
 			id = 'sandbox',
 			rule_any = {
 				class = {
-					--'opensnitch-ui'
+				
 				}
 			},
 			properties = {
@@ -310,7 +323,8 @@ ruled.client.connect_signal(
 			id = 'files',
 			rule_any = {
 				class = {
-					'krusader'
+					'krusader',
+					'Doublecmd'
 				}
 			},
 			properties = {

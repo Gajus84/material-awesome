@@ -15,6 +15,11 @@ local utils_dir = config_dir .. 'utilities/'
 -- Key bindings
 local global_keys = awful.util.table.join(
     -- User
+	awful.key({ modkey, altkey   }, 
+	"r", 
+	function() awful.spawn.with_shell("alacritty --class=ranger,ranger --title=Ranger -e ranger") end,
+	{description = "Open Ranger", group = "user"}
+),
     awful.key({ modkey, altkey   }, 
         "u", 
         function() awful.spawn.with_shell("alacritty -e ~/.config/awesome/scripts/update_pp.sh") end,
@@ -431,6 +436,14 @@ local global_keys = awful.util.table.join(
 			awful.spawn(apps.default.web_browser)
 		end,
 		{description = 'open default web browser', group = 'launcher'}
+	),
+	awful.key(
+		{modkey, altkey}, 
+		'm',
+		function()
+			awful.spawn(apps.default.mail)
+		end,
+		{description = 'open default mail client', group = 'launcher'}
 	),
 	awful.key(
 		{ modkey, altkey}, 

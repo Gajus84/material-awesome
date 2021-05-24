@@ -23,38 +23,112 @@ local client_keys = awful.util.table.join(
 		end,
 		{description = 'close', group = 'client'}
 	),
-	awful.key(
-		{altkey, 'Control'},
-		'd',
-		function()
-			awful.client.focus.byidx(1)
-		end,
-		{description = 'focus next by index', group = 'client'}
+	-- awful.key(
+	-- 	{altkey, 'Control'},
+	-- 	'd',
+	-- 	function()
+	-- 		awful.client.focus.byidx(1)
+	-- 	end,
+	-- 	{description = 'focus next by index', group = 'client'}
+	-- ),
+	-- Moving windows between positions works between desktops
+ 	awful.key(
+		{ modkey, "Shift"   },
+		"Left",
+		function (c)
+			awful.client.swap.global_bydirection("left")
+			c:raise()
+  		end,
+  		{description = "swap with left client", group = "client"}
 	),
-	awful.key(
-		{altkey, 'Control'},
-		'a',
-		function()
-			awful.client.focus.byidx(-1)
-		end,
-		{description = 'focus previous by index', group = 'client'}
+  	awful.key(
+		{ modkey, "Shift"   },
+		"Right",
+		function (c)
+			awful.client.swap.global_bydirection("right")
+			c:raise()
+  		end,
+  		{description = "swap with right client", group = "client"}
 	),
-	awful.key(
-		{ modkey, 'Shift'  },
-		'd',
-		function ()
-			awful.client.swap.byidx(1)
-		end,
-		{description = 'swap with next client by index', group = 'client'}
+  	awful.key(
+		{ modkey, "Shift"   }, 
+		"Down", 
+		function (c)
+			awful.client.swap.global_bydirection("down")
+			c:raise()
+  		end,
+  		{description = "swap with down client", group = "client"}
 	),
-	awful.key(
-		{ modkey, 'Shift' },
-		'a',
-		function ()
-			awful.client.swap.byidx(-1)
-		end,
-		{description = 'swap with next client by index', group = 'client'}
+  	awful.key(
+		{ modkey, "Shift"   }, 
+		"Up", 
+		function (c)
+			awful.client.swap.global_bydirection("up")
+			c:raise()
+  		end,
+  		{description = "swap with up client", group = "client"}
 	),
+	 -- Moving window focus works between desktops
+	 awful.key(
+		{ modkey}, 
+	 	"Down", 
+		function (c)
+			awful.client.focus.global_bydirection("down")
+			c:lower()
+	  	end,
+	  	{description = "focus next window up", group = "client"}
+	),
+	  awful.key(
+		{modkey}, 
+		"Up", 
+		function (c)
+			awful.client.focus.global_bydirection("up")
+			c:lower()
+	  	end,
+	  	{description = "focus next window down", group = "client"}
+	),
+	  awful.key(
+		{ modkey}, 
+		"Right", 
+		function (c)
+			awful.client.focus.global_bydirection("right")
+			c:lower()
+	  	end,
+	  	{description = "focus next window right", group = "client"}
+	),
+	  awful.key(
+		{modkey}, 
+		"Left", 
+		function (c)
+			awful.client.focus.global_bydirection("left")
+			c:lower()
+	  	end,
+	  	{description = "focus next window left", group = "client"}
+	),
+	-- awful.key(
+	-- 	{altkey, 'Control'},
+	-- 	'a',
+	-- 	function()
+	-- 		awful.client.focus.byidx(-1)
+	-- 	end,
+	-- 	{description = 'focus previous by index', group = 'client'}
+	-- ),
+	-- awful.key(
+	-- 	{ modkey, 'Shift'  },
+	-- 	'd',
+	-- 	function ()
+	-- 		awful.client.swap.byidx(1)
+	-- 	end,
+	-- 	{description = 'swap with next client by index', group = 'client'}
+	-- ),
+	-- awful.key(
+	-- 	{ modkey, 'Shift' },
+	-- 	'a',
+	-- 	function ()
+	-- 		awful.client.swap.byidx(-1)
+	-- 	end,
+	-- 	{description = 'swap with next client by index', group = 'client'}
+	-- ),
 	awful.key(
 		{modkey}, 
 		'u', 
@@ -134,7 +208,7 @@ local client_keys = awful.util.table.join(
 	),
 	-- Move client to tag below
 	awful.key(
-		{modkey, 'Shift'},
+		{modkey, 'Control'},
 		'Down',
 		function()
 			if client.focus then
@@ -154,7 +228,7 @@ local client_keys = awful.util.table.join(
 	),
 	-- Move client to tag above
 	awful.key(
-		{modkey, 'Shift'},
+		{modkey, 'Control'},
 		'Up',
 		function()
 			if client.focus then
@@ -172,24 +246,24 @@ local client_keys = awful.util.table.join(
 		{description = 'Move client to tag above', group = 'client'},
 		descr_move
 	),
-	-- Move client tab to the right
-	awful.key(
-		{ modkey, 'Shift'  },
-		'Right',
-		function ()
-			awful.client.swap.byidx(1)
-		end,
-		{description = 'swap with next client by index', group = 'client'}
-	),
-	-- Move client tab to the left
-	awful.key(
-		{ modkey, 'Shift' },
-		'Left',
-		function ()
-			awful.client.swap.byidx(-1)
-		end,
-		{description = 'swap with next client by index', group = 'client'}
-	),
+	-- -- Move client tab to the right
+	-- awful.key(
+	-- 	{ modkey, 'Shift'  },
+	-- 	'Right',
+	-- 	function ()
+	-- 		awful.client.swap.byidx(1)
+	-- 	end,
+	-- 	{description = 'swap with next client by index', group = 'client'}
+	-- ),
+	-- -- Move client tab to the left
+	-- awful.key(
+	-- 	{ modkey, 'Shift' },
+	-- 	'Left',
+	-- 	function ()
+	-- 		awful.client.swap.byidx(-1)
+	-- 	end,
+	-- 	{description = 'swap with next client by index', group = 'client'}
+	-- ),
 	-- Screen management
 	awful.key(
 		{modkey},
@@ -200,7 +274,7 @@ local client_keys = awful.util.table.join(
 		{description = 'Move client to next screen', group = 'client'}
 	),
 	awful.key(
-		{modkey},
+		{modkey, 'Control'},
 		'Up',
 		function(c)
 			c:relative_move(0, dpi(-10), 0, 0)
@@ -208,7 +282,7 @@ local client_keys = awful.util.table.join(
 		{description = 'move floating client up by 10 px', group = 'client'}
 	),
 	awful.key(
-		{modkey},
+		{modkey, 'Control'},
 		'Down',
 		function(c)
 			c:relative_move(0, dpi(10), 0, 0)
@@ -216,7 +290,7 @@ local client_keys = awful.util.table.join(
 		{description = 'move floating client down by 10 px', group = 'client'}
 	),
 	awful.key(
-		{modkey},
+		{modkey, 'Control'},
 		'Left',
 		function(c)
 			c:relative_move(dpi(-10), 0, 0, 0)
@@ -224,7 +298,7 @@ local client_keys = awful.util.table.join(
 		{description = 'move floating client to the left by 10 px', group = 'client'}
 	),
 	awful.key(
-		{modkey},
+		{modkey, 'Control'},
 		'Right',
 		function(c)
 			c:relative_move(dpi(10), 0, 0, 0)
