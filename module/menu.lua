@@ -228,6 +228,13 @@ local tools_menu = {
 		menubar.utils.lookup_icon('accessories-screenshot')
 	},
 	{
+		'Change Wallpaper',
+		function()
+			awful.spawn.with_shell("$HOME/.config/awesome/scripts/wallpaper-change.sh")
+		end,
+		menubar.utils.lookup_icon('wallpaper') 
+	},
+	{
 		'End Session',
 		function()
 			awesome.emit_signal('module::exit_screen:show')

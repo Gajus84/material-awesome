@@ -1,6 +1,6 @@
 #!/bin/sh
 #sleep 30
 killall -9 kdeconnect-indicator
-sleep 10 
-indicator-kdeconnect
+sleep 30 
+kdeconnect-indicator
 

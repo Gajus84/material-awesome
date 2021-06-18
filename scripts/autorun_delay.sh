@@ -9,7 +9,8 @@ function run {
   fi
 }
 sleep 30
-run opensnitch-ui &
-sleep 5
+#run opensnitch-ui &
+#sleep 5
+#run /var/lib/portmaster/portmaster-start notifier --data=/var/lib/portmaster &
 run kdeconnect-indicator &
-
+#run indicator-kdeconnect &
