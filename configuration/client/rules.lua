@@ -168,8 +168,8 @@ ruled.client.connect_signal(
 					'SiriKali',
 					'KeePassXC',
 					'Qalculate-gtk',
-                    'Signal',
 					'opensnitch-ui',
+					'pulsemixer',
 					'Gufw.py'
 				}
 			},
@@ -177,16 +177,85 @@ ruled.client.connect_signal(
 				titlebars_enabled = true,
 				floating = true,
 				above = true,
+				ontop = true,
 				skip_decoration = true,
 				placement = awful.placement.centered,
 				sticky = true
+			}
+		} 
+		-- Calendar
+		ruled.client.append_rule {
+			id = 'calendar',
+			rule_any = {
+				class = {
+					'calcurse',
+					'ikhal'	
+				}
+			},
+			properties = {
+				titlebars_enabled = true,
+				floating = true,
+				above = true,
+				ontop = true,
+				skip_decoration = true,
+				width = 600,
+    			height = 500,
+				placement = awful.placement.centered,
+				sticky = true
+			}
+		} 
+			-- Music
+		ruled.client.append_rule {
+			id = 'music',
+			rule_any = {
+				class = {
+					'Gnome-podcasts',
+					'Quodlibet',
+					'castero',
+					'Lollypop'
+				}
+			},
+			properties = {
+				titlebars_enabled = false,
+				--floating = true,
+				tag = '2',
+				--above = true,
+				--ontop = true,
+				skip_decoration = true,
+				floating = true
+			}
+		}
+
+		ruled.client.append_rule {
+			id = 'Messenger',
+			rule = {
+				class = 'Signal'
+			},
+			properties = {
+				--titlebars_enabled = true,
+				tag = '9',
+				switch_to_tags = true,
+				kmaswitch_to_tags = true,
+				--floating = true,
+				--above = true,
+				--ontop = true,
+				skip_decoration = true
+				--placement = awful.placement.centered,
+				--sticky = true
 			}
 		}    
 	-- Ranger
 	ruled.client.append_rule {
 		id = 'ranger',
 		rule_any = {
-			instance = {'ranger'}
+			instance = {
+					'ranger',
+					'joshuto'
+				},
+			class = {
+					'ranger',
+					'joshuto'
+				},
 		},
 		properties = {
 			tag = '3',
@@ -266,15 +335,16 @@ ruled.client.connect_signal(
 			rule_any = {
 				class = {
 					'vlc',
+					'ffplay',
 					'mpv'
 				}
 			},
 			properties = {
                 tag = '2',
-                screen = 2,
+                --screen = 2,
 				kmaswitch_to_tags = true,
 			--	placement = awful.placement.centered,
-                titlebars_enabled = true,
+                titlebars_enabled = false,
                 switch_to_tags = true
 			}
 		}
@@ -293,6 +363,7 @@ ruled.client.connect_signal(
 				name = {
 					'Steam',
 					'Lutris',
+					'ck2',
 					'Moonlight'
 				}
 			},
@@ -375,6 +446,8 @@ ruled.client.connect_signal(
 				class = {
 					'Gimp',
 					'Inkscape',
+					'avidemux3_qt5',
+					'Ghb',
 					'Flowblade'
 				}
 			},

@@ -15,14 +15,60 @@ local utils_dir = config_dir .. 'utilities/'
 -- Key bindings
 local global_keys = awful.util.table.join(
     -- User
+	awful.key(
+		{modkey, altkey},
+		's',
+		function()
+			awful.spawn.with_shell('st -t "Simple Terminal"')
+		end,
+		{description = 'Open ST', group = 'launcher'}
+	),
+	awful.key(
+		{modkey, altkey},
+		'k',
+		function()
+			awful.spawn.with_shell(apps.default.calendar)
+		end,
+		{description = 'Open Calendar App', group = 'launcher'}
+	),
+	awful.key({ modkey, altkey   }, 
+	"q", 
+	function() awful.spawn.with_shell('qalculate-gtk') end,
+	{description = "Open Qalculate", group = "user"}
+),
+	awful.key({ modkey   }, 
+	"m", 
+	function() awful.spawn.with_shell("quodlibet") end,
+	{description = "Open Quod Libet", group = "user"}
+),
+	awful.key({ modkey   }, 
+	"p", 
+	function() awful.spawn.with_shell("st -c=castero,castero -t=castero -e castero") end,
+	{description = "Open Castero", group = "user"}
+),
+	awful.key({ modkey, 'Control'   }, 
+	"m", 
+	function() awful.spawn.with_shell("lxrandr") end,
+	{description = "Config Screens", group = "screen"}
+),
 	awful.key({ modkey, altkey   }, 
 	"r", 
-	function() awful.spawn.with_shell("alacritty --class=ranger,ranger --title=Ranger -e ranger") end,
+	function() awful.spawn.with_shell("st -c=ranger,ranger -t=Ranger -e ranger") end,
 	{description = "Open Ranger", group = "user"}
+),
+	awful.key({ modkey, altkey   }, 
+	"j", 
+	function() awful.spawn.with_shell("st -c=joshuto,joshuto -t=Joshuto -e joshuto") end,
+	{description = "Open Joshuto", group = "user"}
+),
+	awful.key({ modkey, 'Control'   }, 
+	"o", 
+	function() awful.spawn.with_shell("$HOME/.config/awesome/scripts/restart-ops+kci.sh") end,
+	{description = "Restart KDE-Connect-Indicator", group = "user"}
 ),
     awful.key({ modkey, altkey   }, 
         "u", 
-        function() awful.spawn.with_shell("alacritty -e ~/.config/awesome/scripts/update_pp.sh") end,
+        function() awful.spawn.with_shell("st -e ~/.config/awesome/scripts/update_pp.sh") end,
         {description = "Update", group = "user"}
     ),
      awful.key({ modkey, altkey   }, 
@@ -37,12 +83,12 @@ local global_keys = awful.util.table.join(
     ),
     awful.key({ modkey, 'Control'   }, 
         "h", 
-        function() awful.spawn.with_shell("alacritty -e htop") end,
-        {description = "htop", group = "user"}
+        function() awful.spawn.with_shell("st -e btm -b") end,
+        {description = "Bottom Basic", group = "user"}
     ),  
       awful.key({ modkey, altkey   }, 
         "d", 
-        function() awful.spawn.with_shell("avidemux_qt5") end,
+        function() awful.spawn.with_shell("avidemux3_qt5") end,
         {description = "Avidemux", group = "user"}
     ), 
      awful.key({ modkey, altkey   }, 
@@ -57,22 +103,22 @@ local global_keys = awful.util.table.join(
     ),
       awful.key({ modkey, altkey   }, 
         "t", 
-        function() awful.spawn.with_shell("~/.config/awesome/scripts/speedtest.sh") end,
+        function() awful.spawn.with_shell("st -e ~/.config/awesome/scripts/speedtest.sh") end,
         {description = "Speedtest", group = "user"}
     ),
       awful.key({ modkey, 'Control'   }, 
         "b", 
-        function() awful.spawn.with_shell("alacritty -e bashtop") end,
-        {description = "Bashtop", group = "user"}
+        function() awful.spawn.with_shell("st -e btm") end,
+        {description = "Bottom Full", group = "user"}
     ),   
      awful.key({ modkey, altkey   }, 
         "z", 
-        function() awful.spawn.with_shell("alacritty -e ~/.config/awesome/scripts/hardcode_tray.sh") end,
+        function() awful.spawn.with_shell("st -e ~/.config/awesome/scripts/hardcode_tray.sh") end,
         {description = "Hardcode-Tray", group = "user"}
     ),   
     awful.key({ modkey, altkey, 'Control' }, 
         "h", 
-        function() awful.spawn.with_shell("alacritty -e ~/.config/hardcode-fixer/fix.sh") end,
+        function() awful.spawn.with_shell("st -e ~/.config/hardcode-fixer/fix.sh") end,
         {description = "Hardcode-Fixer", group = "user"}
     ),   
 	-- Hotkeys
@@ -81,6 +127,12 @@ local global_keys = awful.util.table.join(
 		'F1', 
 		hotkeys_popup.show_help, 
 		{description = 'show help', group = 'awesome'}
+	),
+	awful.key(
+		{modkey, 'Control' }, 
+		'n', 
+		function() awful.spawn.with_shell("$HOME/.config/awesome/scripts/wallpaper-change.sh") end, 
+		{description = 'Change Wallpaper', group = 'hotkeys'}
 	),
     awful.key({ 'Control', modkey   }, 
         "c", 
@@ -408,7 +460,7 @@ local global_keys = awful.util.table.join(
 		'Return',
 		function()
 			awful.spawn(apps.default.terminal)
-            awful.layout.inc(2)
+            --awful.layout.inc(2)
 		end,
 		{description = 'open default terminal', group = 'launcher'}
 	),
@@ -417,7 +469,7 @@ local global_keys = awful.util.table.join(
 		'x',
 		function()
 			awful.spawn(apps.default.terminal)
-            awful.layout.inc(2)
+            --awful.layout.inc(2)
 		end,
 		{description = 'open default terminal', group = 'launcher'}
 	),

@@ -6,7 +6,7 @@ return {
 	-- The default applications that we will use in keybindings and widgets
 	default = {
 		-- Default terminal emulator
-		terminal = 'env alacritty',
+		terminal = 'env st -t "Simple Terminal"',
 		-- Default web browser
 		web_browser = 'env librewolf',
 		-- Default text editor
@@ -15,6 +15,10 @@ return {
 		file_manager = 'doublecmd',
 		-- Default media player
 		multimedia = 'mpv --player-operation-mode=pseudo-gui',
+		-- Mixer
+		mixer = 'st -c=pulsemixer,pulsemixer -t=Pulsemixer -e /usr/bin/pulsemixer',
+		-- Default calendar app
+		calendar = 'st -c=ikhal,ikhal -t=Ikhal -e ~/.local/bin/cursekhal',
 		-- Default game, can be a launcher like steam
 		game = 'env steam',
 		-- Default graphics editor
@@ -32,7 +36,7 @@ return {
 		-- Default GUI package manager
 		package_manager = 'pamac-manager',
 		-- Default locker
-		lock = '.config/awesome/scripts/lock.sh',
+		lock = 'betterlockscreen -l dim & qdbus org.keepassxc.KeePassXC.MainWindow /keepassxc org.keepassxc.MainWindow.lockAllDatabases',
 		-- Default quake terminal
 		quake = 'env alacritty --title QuakeTerminal',
 		
@@ -62,16 +66,19 @@ return {
 		--'nm-applet --indicator',
 				                      
         -- Random Wallpapers
-         '~/.config/awesome/scripts/wallpapers.sh',
+        '~/.config/awesome/scripts/wallpapers.sh',
                                             
         -- Delay Autostart
         '~/.config/awesome/scripts/autorun_delay.sh',
 		
 		-- ibus keyboard daemon for keyboard management and emoji typing
-		'ibus-daemon --xim --daemonize',
+		'ibus-daemon --xim --daemonize', 
 
 		-- Ranger
-    	'alacritty --class=ranger,ranger --title=Ranger -e ranger',
+    	'st -c=ranger,ranger -t=Ranger -e ranger',
+
+		-- Joshuto
+    	--'alacritty --class=joshuto,joshuto --title=Joshuto -e joshuto',
 
 		-- turn on numlock
     	--'numlockx on',
