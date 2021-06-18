@@ -34,7 +34,6 @@ require('configuration.client')
 require('configuration.root')
 require('configuration.tags')
 root.keys(require('configuration.keys.global'))
---root.keys(require('configuration.keys.user'))
 
 -- ░█▄█░█▀█░█▀▄░█░█░█░░░█▀▀░█▀▀
 -- ░█░█░█░█░█░█░█░█░█░░░█▀▀░▀▀█
@@ -47,7 +46,7 @@ require('module.quake-terminal')
 require('module.menu')
 require('module.titlebar')
 --require('module.brightness-osd')
-require('module.volume-osd')
+--require('module.volume-osd')
 --require('module.lockscreen')
 require('module.dynamic-wallpaper')
 
@@ -84,3 +83,4 @@ awful.spawn.with_shell(
 	-- list each of your autostart commands, followed by ; inside single quotes, followed by ..
 	'systemctl --user start autostart.target'
 	)
+

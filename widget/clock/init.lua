@@ -5,6 +5,7 @@ local beautiful = require('beautiful')
 local dpi = beautiful.xresources.apply_dpi
 local clickable_container = require('widget.clickable-container')
 local config = require('configuration.config')
+local apps = require('configuration.apps')
 local military_mode = config.widget.clock.military_mode or false
 
 local create_clock = function(s)
@@ -150,6 +151,17 @@ local create_clock = function(s)
 			on_pressed = true,
 			on_hover = false 
 		}
+	)
+
+	s.month_calendar:connect_signal(
+		'button::press',
+		function(self, lx, ly, button)
+			-- Hide the tooltip when you press the clock widget
+			if s.month_calendar.visible and button == 1 then
+				awful.spawn.with_shell(apps.default.calendar)
+				
+			end
+		end
 	)
 
 	return s.clock_widget

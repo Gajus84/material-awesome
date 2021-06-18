@@ -56,12 +56,15 @@ local top_panel = function(s, offset)
 	local add_button 		= require('widget.open-default-app')(s)
 	s.tray_toggler  		= require('widget.tray-toggle')
 	s.updater 				= require('widget.package-updater')()
+	local todo_widget 		= require("widget.todo-widget.todo")
+	local volume_widget 	= require('widget.volume-widget.volume')
 --	s.screen_rec 			= require('widget.screen-recorder')()
 	--s.mpd       			= require('widget.mpd')()
 	--s.bluetooth   			= require('widget.bluetooth')()
 --	s.battery     			= require('widget.battery')()
-	--s.network       		= require('widget.network')()
+	s.network       		= require('widget.network')()
 	s.info_center_toggle	= require('widget.info-center-toggle')()
+	--local mpris_widget 		= require("widget.mpris-widget")
 
 	panel : setup {
 		layout = wibox.layout.align.horizontal,
@@ -84,12 +87,17 @@ local top_panel = function(s, offset)
 				widget = wibox.container.margin
 			},
 			s.tray_toggler,
-			s.updater,
 			--s.screen_rec,
 			--s.mpd,
-			--s.network,
 			--s.bluetooth,
 			--s.battery,
+			--mpris_widget,
+			volume_widget{
+				widget_type = 'arc'
+			},
+			todo_widget(),
+			s.updater,
+			s.network,
 			clock,
 			layout_box,
 			s.info_center_toggle

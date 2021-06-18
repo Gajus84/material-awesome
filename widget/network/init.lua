@@ -24,7 +24,7 @@ local config = require('configuration.config')
 -- Configuration
 local interfaces = {
 	wlan_interface = config.widget.network.wireless_interface or 'wlan0',
-	lan_interface = config.widget.network.wired_interface or 'enp0s25'
+	lan_interface = config.widget.network.wired_interface or 'enp34s0'
 }
 
 local network_mode = nil
@@ -41,7 +41,7 @@ local return_button = function()
 	local widget = wibox.widget {
 		{
 			id = 'icon',
-			image = widget_icon_dir .. 'wifi-strength-off' .. '.svg',
+			image = widget_icon_dir .. 'wired-off' .. '.svg',
 			widget = wibox.widget.imagebox,
 			resize = true
 		},
@@ -83,7 +83,7 @@ local return_button = function()
 	local check_internet_health = [=[
 	status_ping=0
 
-	packets="$(ping -q -w2 -c2 1.1.1.1 | grep -o "100% packet loss")"
+	packets="$(ping -I enp34s0 -q -w2 -c2 1.1.1.1 | grep -o "100% packet loss")"
 	if [ ! -z "${packets}" ];
 	then
 		status_ping=0
@@ -344,7 +344,7 @@ local return_button = function()
 	end
 
 	local network_updater = gears.timer {
-		timeout = 5,
+		timeout = 60,
 		autostart = true,
 		call_now = true,
 		callback = function()
