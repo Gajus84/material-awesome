@@ -3,12 +3,14 @@ if [ $1 == "--delayed" ]; then
     sleep 10 ; spectacle -b -n ${@:2} -o /tmp/screenshot.png ; xclip -selection clipboard -target image/png -i /tmp/screenshot.png ; paplay /usr/share/sounds/freedesktop/stereo/camera-shutter.oga
 else
     killall -15 ksnip
+    killall -9 xclip
     rm /tmp/screenshot.png
-    ksnip $@
+    # Use dbus to launch ksnip to avoid any delay (some weirdness that happened to me)
+    dbus-launch --exit-with-session ksnip $@ &
     
     until [ -f /tmp/screenshot.png ]
     do
-             sleep 1
+        sleep 1
     done
     sleep 1
     xclip -selection clipboard -target image/png -i /tmp/screenshot.png
