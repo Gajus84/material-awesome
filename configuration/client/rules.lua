@@ -249,17 +249,17 @@ ruled.client.connect_signal(
 		id = 'ranger',
 		rule_any = {
 			instance = {
-					'ranger',
-					'joshuto'
+					'ranger'
+					--'joshuto'
 				},
 			class = {
-					'ranger',
-					'joshuto'
+					'ranger'
+					--'joshuto'
 				},
 		},
 		properties = {
 			tag = '3',
-			screen = 2
+			screen = 1
 		}
 	}
 		-- Browsers and chats
@@ -270,6 +270,7 @@ ruled.client.connect_signal(
 					'firefox',
 					'Tor Browser',
 					'discord',
+					'Brave-browser',
 					'Chromium',
 					'Google-chrome',
 					'LibreWolf'
@@ -383,7 +384,11 @@ ruled.client.connect_signal(
 			rule_any = {
 				class = {
 					'Thunderbird',
+					'neomutt',
 					'tutanota-desktop'
+				},
+				instance = {
+					'neomutt'
 				}
 			},
 			properties = {
@@ -396,13 +401,17 @@ ruled.client.connect_signal(
 			id = 'files',
 			rule_any = {
 				class = {
+					'joshuto',
 					'krusader',
 					'Doublecmd'
+				},
+				instance = {
+					'joshuto'
 				}
 			},
 			properties = {
 				tag = '3',
-                screen = 1,
+                screen = 2,
 			--	switch_to_tags = true
 			}
 		}

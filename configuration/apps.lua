@@ -8,9 +8,9 @@ return {
 		-- Default terminal emulator
 		terminal = 'env st -t "Simple Terminal"',
 		-- Default web browser
-		web_browser = 'env librewolf',
+		web_browser = 'env brave',
 		-- Default text editor
-		text_editor = 'featherpad',
+		text_editor = 'st -c=nvim,nvim -t=LunarVim -e /usr/bin/nvim',
 		-- Default file manager
 		file_manager = 'doublecmd',
 		-- Default media player
@@ -26,7 +26,7 @@ return {
 		-- Default sandbox
 		sandbox = 'virtualbox',
 		-- Default IDE
-		mail = 'thunderbird',
+		mail = 'st -c=neomutt,neomutt -e /usr/bin/neomutt',
 		-- Default network manager
 		network_manager = 'nm-connection-editor',
 		-- Default bluetooth manager
@@ -78,7 +78,7 @@ return {
     	'st -c=ranger,ranger -t=Ranger -e ranger',
 
 		-- Joshuto
-    	--'alacritty --class=joshuto,joshuto --title=Joshuto -e joshuto',
+    	'st -c=joshuto,joshuto -t=Joshuto -e joshuto',
 
 		-- turn on numlock
     	--'numlockx on',
@@ -101,8 +101,11 @@ return {
 		'xrdb $HOME/.Xresources',
 		
 		-- Audio equalizer
-		--'pulseeffects --gapplication-service',			
-		
+		--'pulseeffects --gapplication-service',	
+				
+		-- Disable Capslock-Key
+		'xmodmap -e "clear lock"',
+
 		-- Set brightness to 50% on LVDS output because my laptop battery is bad
 	--	utils_dir .. 'laptop-brightness set 50',
 		
