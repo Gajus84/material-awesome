@@ -14,154 +14,154 @@ local utils_dir = config_dir .. 'utilities/'
 
 -- Key bindings
 local global_keys = awful.util.table.join(
-    -- User
-	awful.key(
-		{modkey, altkey},
-		's',
-		function()
-			awful.spawn.with_shell('st -t "Simple Terminal"')
-		end,
-		{description = 'Open ST', group = 'launcher'}
-	),
-	awful.key(
-		{modkey, altkey},
-		'k',
-		function()
-			awful.spawn.with_shell(apps.default.calendar)
-		end,
-		{description = 'Open Calendar App', group = 'launcher'}
-	),
-	awful.key({ modkey, altkey   }, 
-	"q", 
-	function() awful.spawn.with_shell('qalculate-gtk') end,
-	{description = "Open Qalculate", group = "user"}
-),
-	awful.key({ modkey   }, 
-	"m", 
-	function() awful.spawn.with_shell("quodlibet") end,
-	{description = "Open Quod Libet", group = "user"}
-),
-	awful.key({ modkey   }, 
-	"p", 
-	function() awful.spawn.with_shell("st -c=castero,castero -t=castero -e castero") end,
-	{description = "Open Castero", group = "user"}
-),
-	awful.key({ modkey, 'Control'   }, 
-	"m", 
-	function() awful.spawn.with_shell("lxrandr") end,
-	{description = "Config Screens", group = "screen"}
-),
-	awful.key({ modkey, altkey   }, 
-	"r", 
-	function() awful.spawn.with_shell("st -c=ranger,ranger -t=Ranger -e ranger") end,
-	{description = "Open Ranger", group = "user"}
-),
-	awful.key({ modkey, altkey   }, 
-	"j", 
-	function() awful.spawn.with_shell("st -c=joshuto,joshuto -t=Joshuto -e joshuto") end,
-	{description = "Open Joshuto", group = "user"}
-),
+
+    -- User System
 	awful.key({ modkey, 'Control'   }, 
 	"o", 
 	function() awful.spawn.with_shell("$HOME/.config/awesome/scripts/restart-ops+kci.sh") end,
-	{description = "Restart KDE-Connect-Indicator", group = "user"}
-),
-    awful.key({ modkey, altkey   }, 
+	{description = "Restart KDE-Connect-Indicator", group = "User System"}
+	),
+    awful.key({ modkey, 'Shift'   }, 
         "u", 
-        function() awful.spawn.with_shell("st -e ~/.config/awesome/scripts/update_pp.sh") end,
-        {description = "Update", group = "user"}
+        function() awful.spawn.with_shell("st -e ~/.config/awesome/scripts/update_w_reflector.sh") end,
+        {description = "Update with Reflector run", group = "User System"}
     ),
+	awful.key({ modkey, 'Control'  }, 
+        "u", 
+        function() awful.spawn.with_shell("st -e ~/.config/awesome/scripts/update.sh") end,
+        {description = "Update", group = "User System"}
+    ),
+	awful.key({ modkey, 'Control'   }, 
+		"h", 
+		function() awful.spawn.with_shell("st -e btm -b") end,
+		{description = "Bottom Basic", group = "User System"}
+	), 
+	awful.key({ modkey, 'Control'   }, 
+		"t", 
+		function() awful.spawn.with_shell("st -e ~/.config/awesome/scripts/speedtest.sh") end,
+		{description = "Speedtest", group = "User System"}
+	),
+	awful.key({ modkey, 'Control'   }, 
+		"b", 
+		function() awful.spawn.with_shell("st -e btm") end,
+		{description = "Bottom Full", group = "User System"}
+	),   
+ 	awful.key({ modkey, 'Control'   }, 
+		"z", 
+		function() awful.spawn.with_shell("st -e ~/.config/awesome/scripts/hardcode_tray.sh") end,
+		{description = "Hardcode-Tray", group = "User System"}
+	),   
+	awful.key({ modkey, altkey, 'Control' }, 
+		"h", 
+		function() awful.spawn.with_shell("st -e ~/.config/hardcode-fixer/fix.sh") end,
+		{description = "Hardcode-Fixer", group = "User System"}
+	),   
+
+	-- User Apps
+	awful.key({ modkey, altkey   }, 
+	"q", 
+	function() awful.spawn.with_shell('qalculate-gtk') end,
+	{description = "Open Qalculate", group = "User Apps"}
+	),
+	awful.key({ modkey   }, 
+	"m", 
+	function() awful.spawn.with_shell("quodlibet") end,
+	{description = "Open Quod Libet", group = "User Apps"}
+	),
+	awful.key({ modkey   }, 
+	"p", 
+	function() awful.spawn.with_shell("st -c=castero,castero -t=castero -e castero") end,
+	{description = "Open Castero", group = "User Apps"}
+	),
+	awful.key({ modkey, altkey   }, 
+	"r", 
+	function() awful.spawn.with_shell("st -c=ranger,ranger -t=Ranger -e ranger") end,
+	{description = "Open Ranger", group = "User Apps"}
+	),
+	awful.key({ modkey, altkey   }, 
+	"j", 
+	function() awful.spawn.with_shell("st -c=joshuto,joshuto -t=Joshuto -e joshuto") end,
+	{description = "Open Joshuto", group = "User Apps"}
+	),
      awful.key({ modkey, altkey   }, 
         "c", 
         function() awful.spawn.with_shell("$HOME/Documents/daten/Programme/ctbrec/ctbrec.sh") end,
-        {description = "CRBR", group = "user"}
+        {description = "CRBR", group = "User Apps"}
     ),
     awful.key({ modkey, altkey   }, 
         "h", 
         function() awful.spawn.with_shell("ghb") end,
-        {description = "Handbrake", group = "user"}
-    ),
-    awful.key({ modkey, 'Control'   }, 
-        "h", 
-        function() awful.spawn.with_shell("st -e btm -b") end,
-        {description = "Bottom Basic", group = "user"}
-    ),  
+        {description = "Handbrake", group = "User Apps"}
+    ), 
       awful.key({ modkey, altkey   }, 
         "d", 
         function() awful.spawn.with_shell("avidemux3_qt5") end,
-        {description = "Avidemux", group = "user"}
+        {description = "Avidemux", group = "User Apps"}
     ), 
      awful.key({ modkey, altkey   }, 
         "b", 
         function() awful.spawn.with_shell("sh /opt/jameica/jameica.sh") end,
-        {description = "Hibiscus", group = "user"}
+        {description = "Hibiscus", group = "User Apps"}
     ),   
          awful.key({ modkey, altkey   }, 
         "p", 
         function() awful.spawn.with_shell("$HOME/Programme/portfolio/PortfolioPerformance") end,
-        {description = "Portfolio Performance", group = "user"}
+        {description = "Portfolio Performance", group = "User Apps"}
     ),
-      awful.key({ modkey, altkey   }, 
-        "t", 
-        function() awful.spawn.with_shell("st -e ~/.config/awesome/scripts/speedtest.sh") end,
-        {description = "Speedtest", group = "user"}
-    ),
-      awful.key({ modkey, 'Control'   }, 
-        "b", 
-        function() awful.spawn.with_shell("st -e btm") end,
-        {description = "Bottom Full", group = "user"}
-    ),   
-     awful.key({ modkey, altkey   }, 
-        "z", 
-        function() awful.spawn.with_shell("st -e ~/.config/awesome/scripts/hardcode_tray.sh") end,
-        {description = "Hardcode-Tray", group = "user"}
-    ),   
-    awful.key({ modkey, altkey, 'Control' }, 
-        "h", 
-        function() awful.spawn.with_shell("st -e ~/.config/hardcode-fixer/fix.sh") end,
-        {description = "Hardcode-Fixer", group = "user"}
-    ),   
-	-- Hotkeys
+
+	-- Awesome
 	awful.key(
 		{modkey}, 
 		'F1', 
 		hotkeys_popup.show_help, 
-		{description = 'show help', group = 'awesome'}
-	),
-	awful.key(
-		{modkey, 'Control' }, 
-		'n', 
-		function() awful.spawn.with_shell("$HOME/.config/awesome/scripts/wallpaper-change.sh") end, 
-		{description = 'Change Wallpaper', group = 'hotkeys'}
+		{description = 'show help', group = 'Awesome'}
 	),
     awful.key({ 'Control', modkey   }, 
         "c", 
         function() awful.spawn.with_shell("vscodium ~/.config/awesome/") end,
-        {description = "Show Config", group = "awesome"}
+        {description = "Show Config", group = "Awesome"}
     ),      
 	awful.key({modkey, 'Control'}, 
 		'r', 
 		awesome.restart, 
-		{description = 'reload awesome', group = 'awesome'}
+		{description = 'reload Awesome', group = 'Awesome'}
 	),
 	
 	awful.key({modkey, 'Control'}, 
 		'q', 
 		awesome.quit, 
-		{description = 'quit awesome', group = 'awesome'}
+		{description = 'quit Awesome', group = 'Awesome'}
+	),
+
+	-- Hotkeys
+	awful.key(
+		{modkey, 'Control' }, 
+		'n', 
+		function() awful.spawn.with_shell("$HOME/.config/awesome/scripts/wallpaper-change.sh") end, 
+		{description = 'Change Wallpaper', group = 'Hotkeys'}
+	),
+	awful.key(
+		{modkey, 'Shift'},
+		'q',
+		function()
+			awesome.emit_signal('module::exit_screen:show')
+		end,
+		{description = 'toggle exit screen', group = 'Hotkeys'}
 	),
      awful.key({ 'Control', altkey   }, 
         "o", 
         function() awful.spawn.with_shell("$HOME/.config/awesome/scripts/picom-toggle.sh") end,
-        {description = "Picom toggle", group = "hotkeys"}
+        {description = "Picom toggle", group = "Hotkeys"}
     ),
+
+	-- Layout
     awful.key(
 		{altkey, 'Shift'},
 		'l',
 		function()
 			awful.tag.incmwfact(0.05)
 		end,
-		{description = 'increase master width factor', group = 'layout'}
+		{description = 'increase master width factor', group = 'Layout'}
 	),
 	awful.key(
 		{altkey, 'Shift'},
@@ -169,7 +169,7 @@ local global_keys = awful.util.table.join(
 		function()
 			awful.tag.incmwfact(-0.05)
 		end,
-		{description = 'decrease master width factor', group = 'layout'}
+		{description = 'decrease master width factor', group = 'Layout'}
 	),
 	awful.key(
 		{modkey, 'Shift'},
@@ -177,7 +177,7 @@ local global_keys = awful.util.table.join(
 		function()
 			awful.tag.incnmaster(1, nil, true)
 		end,
-		{description = 'increase the number of master clients', group = 'layout'}
+		{description = 'increase the number of master clients', group = 'Layout'}
 	),
 	awful.key(
 		{modkey, 'Shift'},
@@ -185,7 +185,7 @@ local global_keys = awful.util.table.join(
 		function()
 			awful.tag.incnmaster(-1, nil, true)
 		end,
-		{description = 'decrease the number of master clients', group = 'layout'}
+		{description = 'decrease the number of master clients', group = 'Layout'}
 	),
 	awful.key(
 		{modkey, 'Control'},
@@ -193,7 +193,7 @@ local global_keys = awful.util.table.join(
 		function()
 			awful.tag.incncol(1, nil, true)
 		end,
-		{description = 'increase the number of columns', group = 'layout'}
+		{description = 'increase the number of columns', group = 'Layout'}
 	),
 	awful.key(
 		{modkey, 'Control'},
@@ -201,7 +201,7 @@ local global_keys = awful.util.table.join(
 		function()
 			awful.tag.incncol(-1, nil, true)
 		end,
-		{description = 'decrease the number of columns', group = 'layout'}
+		{description = 'decrease the number of columns', group = 'Layout'}
 	),
 	awful.key(
 		{modkey},
@@ -209,7 +209,7 @@ local global_keys = awful.util.table.join(
 		function()
 			awful.layout.inc(1)
 		end,
-		{description = 'select next layout', group = 'layout'}
+		{description = 'select next layout', group = 'Layout'}
 	),
 	awful.key(
 		{modkey, 'Shift'},
@@ -217,7 +217,7 @@ local global_keys = awful.util.table.join(
 		function()
 			awful.layout.inc(-1)
 		end,
-		{description = 'select previous layout', group = 'layout'}
+		{description = 'select previous layout', group = 'Layout'}
 	),
 	awful.key(
 		{modkey},
@@ -225,7 +225,7 @@ local global_keys = awful.util.table.join(
 		function()
 			awful.tag.incgap(1)
 		end,
-		{description = 'increase gap', group = 'layout'}
+		{description = 'increase gap', group = 'Layout'}
 	),
 	awful.key(
 		{modkey},
@@ -233,25 +233,27 @@ local global_keys = awful.util.table.join(
 		function()
 			awful.tag.incgap(-1)
 		end,
-		{description = 'decrease gap', group = 'layout'}
+		{description = 'decrease gap', group = 'Layout'}
 	),
+
+	-- Tag
 	awful.key(
 		{altkey, 'Control'}, 
 		'Up', 
 		awful.tag.viewprev, 
-		{description = 'view previous tag', group = 'tag'}
+		{description = 'view previous tag', group = "Tag"}
 	),
 	awful.key(
 		{altkey, 'Control'}, 
 		'Down', 
 		awful.tag.viewnext, 
-		{description = 'view next tag', group = 'tag'}
+		{description = 'view next tag', group = "Tag"}
 	),
 	awful.key(
 		{modkey}, 
 		'Escape', 
 		awful.tag.history.restore, 
-		{description = 'alternate between current and previous tag', group = 'tag'}
+		{description = 'alternate between current and previous tag', group = "Tag"}
 	),
 	awful.key({ modkey, 'Control' }, 
 		'w',
@@ -265,7 +267,7 @@ local global_keys = awful.util.table.join(
 				end
 			end
 		end, 
-		{description = 'view previous non-empty tag', group = 'tag'}
+		{description = 'view previous non-empty tag', group = "Tag"}
 	),
 	awful.key({ modkey, 'Control' }, 
 		's',
@@ -279,15 +281,17 @@ local global_keys = awful.util.table.join(
 				end
 			end
 		end, 
-		{description = 'view next non-empty tag', group = 'tag'}
+		{description = 'view next non-empty tag', group = "Tag"}
 	),
+
+	-- Screen
 	awful.key(
 		{modkey, 'Shift'}, 
 		'F1',  
 		function() 
 			awful.screen.focus_relative(-1) 
 		end,
-		{ description = 'focus the previous screen', group = 'screen'}
+		{ description = 'focus the previous screen', group = 'Screen'}
 	),
 	awful.key(
 		{modkey, 'Shift'}, 
@@ -295,7 +299,7 @@ local global_keys = awful.util.table.join(
 		function()
 			awful.screen.focus_relative(1)
 		end,
-		{ description = 'focus the next screen', group = 'screen'}
+		{ description = 'focus the next screen', group = 'Screen'}
 	),
 	awful.key(
 		{modkey, 'Control'},
@@ -308,25 +312,9 @@ local global_keys = awful.util.table.join(
 				c:raise()
 			end
 		end,
-		{description = 'restore minimized', group = 'screen'}
+		{description = 'restore minimized', group = 'Screen'}
 	),
-	awful.key(
-		{modkey, 'Shift'},
-		'q',
-		function()
-			awesome.emit_signal('module::exit_screen:show')
-		end,
-		{description = 'toggle exit screen', group = 'hotkeys'}
-	),
-	awful.key(
-		{modkey},
-		'.',
-		function()
-			awesome.emit_signal('module::quake_terminal:toggle')
-		end,
-		{description = 'dropdown application', group = 'launcher'}
-	),
-    --awful.key(
+	--awful.key(
 		--{modkey}, 
 		--'m',
 		--function()
@@ -336,6 +324,8 @@ local global_keys = awful.util.table.join(
 		--end,
 		--{description = 'toggle music widget', group = 'launcher'}
 	--),
+
+	-- Utility
 	awful.key(
     	{'Shift'},
     	'Print',
@@ -455,6 +445,32 @@ local global_keys = awful.util.table.join(
 		end,
 		{description = 'Connect kb and mouse to VM', group = 'Utility'}
 	),
+
+	-- Launcher
+	awful.key(
+		{modkey, altkey},
+		's',
+		function()
+			awful.spawn.with_shell('st -t "Simple Terminal"')
+		end,
+		{description = 'Open ST', group = 'Launcher'}
+	),
+	awful.key(
+		{modkey, altkey},
+		'k',
+		function()
+			awful.spawn.with_shell(apps.default.calendar)
+		end,
+		{description = 'Open Calendar App', group = 'Launcher'}
+	),
+	awful.key(
+		{modkey},
+		'.',
+		function()
+			awesome.emit_signal('module::quake_terminal:toggle')
+		end,
+		{description = 'dropdown application', group = 'Launcher'}
+	),
 	awful.key(
 		{modkey}, 
 		'Return',
@@ -462,7 +478,7 @@ local global_keys = awful.util.table.join(
 			awful.spawn(apps.default.terminal)
             --awful.layout.inc(2)
 		end,
-		{description = 'open default terminal', group = 'launcher'}
+		{description = 'open default terminal', group = 'Launcher'}
 	),
 	awful.key(
 		{modkey}, 
@@ -471,7 +487,7 @@ local global_keys = awful.util.table.join(
 			awful.spawn(apps.default.terminal)
             --awful.layout.inc(2)
 		end,
-		{description = 'open default terminal', group = 'launcher'}
+		{description = 'open default terminal', group = 'Launcher'}
 	),
 	awful.key(
 		{modkey, altkey}, 
@@ -479,7 +495,15 @@ local global_keys = awful.util.table.join(
 		function()
 			awful.spawn(apps.default.file_manager)
 		end,
-		{description = 'open default file manager', group = 'launcher'}
+		{description = 'open default file manager', group = 'Launcher'}
+	),
+	awful.key(
+		{modkey, altkey}, 
+		'w',
+		function()
+			awful.spawn(apps.default.text_editor)
+		end,
+		{description = 'open default text editor', group = 'Launcher'}
 	),
 	awful.key(
 		{modkey, altkey}, 
@@ -487,7 +511,7 @@ local global_keys = awful.util.table.join(
 		function()
 			awful.spawn(apps.default.web_browser)
 		end,
-		{description = 'open default web browser', group = 'launcher'}
+		{description = 'open default web browser', group = 'Launcher'}
 	),
 	awful.key(
 		{modkey, altkey}, 
@@ -495,15 +519,15 @@ local global_keys = awful.util.table.join(
 		function()
 			awful.spawn(apps.default.mail)
 		end,
-		{description = 'open default mail client', group = 'launcher'}
+		{description = 'open default mail client', group = 'Launcher'}
 	),
 	awful.key(
 		{ modkey, altkey}, 
 		'g',
 		function()
-			awful.spawn('chromium')
+			awful.spawn('brave')
 		end,
-		{description = 'Open Chromium', group = 'launcher'}
+		{description = 'Open Brave', group = 'Launcher'}
 	),
 	awful.key(
 		{altkey}, 
@@ -521,7 +545,7 @@ local global_keys = awful.util.table.join(
 			end
 			awful.spawn(apps.default.rofi_appmenu, false)
 		end,
-		{description = 'open application drawer', group = 'launcher'}
+		{description = 'open application drawer', group = 'Launcher'}
 	),
 	awful.key(
 		{modkey},
@@ -534,7 +558,7 @@ local global_keys = awful.util.table.join(
 			end
 			screen.primary.left_panel:toggle()
 		end,
-		{description = 'open sidebar', group = 'launcher'}
+		{description = 'open sidebar', group = 'Launcher'}
 	),
 	awful.key(
 		{modkey, 'Shift'},
@@ -547,7 +571,7 @@ local global_keys = awful.util.table.join(
 			end
 			screen.primary.left_panel:toggle(true)
 		end,
-		{description = 'open sidebar and global search', group = 'launcher'}
+		{description = 'open sidebar and global search', group = 'Launcher'}
 	),
 	awful.key(
 		{modkey}, 
@@ -570,7 +594,7 @@ local global_keys = awful.util.table.join(
 				_G.right_panel_mode = 'today_mode'
 			end
 		end,
-		{description = 'open today pane', group = 'launcher'}
+		{description = 'open today pane', group = 'Launcher'}
 	),
 	awful.key(
 		{modkey}, 
@@ -593,7 +617,7 @@ local global_keys = awful.util.table.join(
 				_G.right_panel_mode = 'notif_mode'
 			end
 		end,
-		{description = 'open notification center', group = 'launcher'}
+		{description = 'open notification center', group = 'Launcher'}
 	)
 )
 
@@ -604,10 +628,10 @@ for i = 1, 9 do
 	-- Hack to only show tags 1 and 9 in the shortcut window (mod+s)
 	local descr_view, descr_toggle, descr_move, descr_toggle_focus
 	if i == 1 or i == 9 then
-		descr_view = {description = 'view tag #', group = 'tag'}
-		descr_toggle = {description = 'toggle tag #', group = 'tag'}
-		descr_move = {description = 'move focused client to tag #', group = 'tag'}
-		descr_toggle_focus = {description = 'toggle focused client on tag #', group = 'tag'}
+		descr_view = {description = 'view tag #', group = "Tag"}
+		descr_toggle = {description = 'toggle tag #', group = "Tag"}
+		descr_move = {description = 'move focused client to tag #', group = "Tag"}
+		descr_toggle_focus = {description = 'toggle focused client on tag #', group = "Tag"}
 	end
 	global_keys =
 		awful.util.table.join(
