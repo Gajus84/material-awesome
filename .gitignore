@@ -1,5 +1,3 @@
-configuration/config.lua
-
 configuration/user-profile/adrian.png
 scripts/power-settings.sh
 scripts/restart-ops+kci.sh
@@ -30,5 +28,3 @@ widget/network/icons/wired-alert.old
 widget/network/icons/wired-off.old
 widget/network/icons/wired.old
 widget/tag-switcher/init.lua
-configuration/config.lua
-configuration/config.lua
