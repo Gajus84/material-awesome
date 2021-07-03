@@ -2,11 +2,14 @@
 if [ $1 == "--delayed" ]; then
     sleep 10 ; spectacle -b -n ${@:2} -o /tmp/screenshot.png ; xclip -selection clipboard -target image/png -i /tmp/screenshot.png ; paplay /usr/share/sounds/freedesktop/stereo/camera-shutter.oga
 else
+    unset QT_STYLE_OVERRIDE
+    unset QT_QPA_PLATFORMTHEME
     killall -15 ksnip
     killall -9 xclip
     rm /tmp/screenshot.png
     # Use dbus to launch ksnip to avoid any delay (some weirdness that happened to me)
     dbus-launch --exit-with-session ksnip $@ &
+    #ksnip $@ &
     
     until [ -f /tmp/screenshot.png ]
     do
@@ -15,7 +18,7 @@ else
     sleep 1
     xclip -selection clipboard -target image/png -i /tmp/screenshot.png
     paplay /usr/share/sounds/freedesktop/stereo/camera-shutter.oga
-    kill $(pgrep -nx dbus-daemon)
+    kill $(pgrep -f dbus-daemon --syslog --fork --print-pid 5 --print-address 7 --session)
     kill $(pgrep -f "dbus-launch --exit-with-session ksnip")
 fi
 
