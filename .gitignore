@@ -1,1 +1,12 @@
 configuration/config.lua
+
+configuration/user-profile/adrian.png
+scripts/power-settings.sh
+scripts/restart-ops+kci.sh
+scripts/update.sh
+scripts/update_w_reflector.sh
+scripts/wallpaper-change.sh
+theme/wallpapers/midnight-wallpaper.jpg
+theme/wallpapers/morning-wallpaper.jpg
+theme/wallpapers/night-wallpaper.jpg
+theme/wallpapers/noon-wallpaper.jpg
