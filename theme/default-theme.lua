@@ -1,3 +1,4 @@
+
 local gears = require('gears')
 local beautiful = require('beautiful')
 
@@ -6,7 +7,7 @@ local dpi = beautiful.xresources.apply_dpi
 local gtk_variable = beautiful.gtk.get_theme_variables
 
 local theme_dir = filesystem.get_configuration_dir() .. '/theme'
-local titlebar_theme = 'lines'
+local titlebar_theme = 'stoplight'
 local titlebar_icon_path = theme_dir .. '/icons/titlebar/' .. titlebar_theme .. '/'
 local tip = titlebar_icon_path
 
@@ -38,7 +39,7 @@ local awesome_overrides = function(theme)
 
 	theme.bg_normal = theme.background
 	theme.bg_focus = '#5a5a5a'
-	theme.bg_urgent = '#1761AB'
+	theme.bg_urgent = '#3F3F3F'
 
 	-- System tray
 	theme.bg_systray = theme.background
@@ -136,7 +137,7 @@ local awesome_overrides = function(theme)
 	theme.border_radius = dpi(9)
 
 	-- Decorations
-	theme.useless_gap = dpi(1)
+	theme.useless_gap = dpi(4)
 	theme.client_shape_rectangle = gears.shape.rectangle
 	theme.client_shape_rounded = function(cr, width, height)
 		gears.shape.rounded_rect(cr, width, height, dpi(6))
@@ -177,9 +178,9 @@ local awesome_overrides = function(theme)
 	
 	-- Taglist
 	theme.taglist_bg_empty = theme.background .. '99'
-	theme.taglist_bg_occupied =  '#ffffff' .. '1A'
-	theme.taglist_bg_urgent = '#ffffff' .. '1A'
-	theme.taglist_bg_focus = '#314853'  --theme.background
+	theme.taglist_bg_occupied =  theme.foreground-- '#ffffff' .. '1A'
+	theme.taglist_bg_urgent = theme.urgent.. '99'
+	theme.taglist_bg_focus = theme.focus
 	theme.taglist_spacing = dpi(0)
 
 	-- Tasklist

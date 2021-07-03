@@ -37,7 +37,7 @@ theme.system_green_light = '#a3be8c'
 theme.system_yellow_dark = '#ebcb8b'
 theme.system_yellow_light = '#ebcb8b'
 
-theme.system_blue_dark = '#3b4252' 
+theme.system_blue_dark = '#3b4252'
 theme.system_blue_light = '#3b4252'
 
 theme.system_magenta_dark = '#985EFF'
@@ -58,7 +58,9 @@ theme.accent = theme.nord3
 
 -- Darker version
 theme.background = theme.nord0
-
+theme.foreground = '#ffffff' .. '1A'
+theme.urgent = '#ffffff' .. '1A'
+theme.focus = '#314853'
 -- Transparent
 theme.transparent = '#00000000'
 
