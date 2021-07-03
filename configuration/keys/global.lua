@@ -70,18 +70,28 @@ local global_keys = awful.util.table.join(
 	),
 	awful.key({ modkey   }, 
 	"p", 
-	function() awful.spawn.with_shell("st -c=castero,castero -t=castero -e castero") end,
+	function() awful.spawn.with_shell("st -c castero -t castero -e castero") end,
 	{description = "Open Castero", group = "User Apps"}
 	),
-	awful.key({ modkey, altkey   }, 
-	"r", 
-	function() awful.spawn.with_shell("st -c=ranger,ranger -t=Ranger -e ranger") end,
-	{description = "Open Ranger", group = "User Apps"}
-	),
+	-- awful.key({ modkey, altkey   }, 
+	-- "r", 
+	-- function() awful.spawn.with_shell("st -c ranger -t Ranger -e ranger") end,
+	-- {description = "Open Ranger", group = "User Apps"}
+	-- ),
 	awful.key({ modkey, altkey   }, 
 	"j", 
-	function() awful.spawn.with_shell("st -c=joshuto,joshuto -t=Joshuto -e joshuto") end,
+	function() awful.spawn.with_shell("st -c joshuto -t Joshuto -e joshuto") end,
 	{description = "Open Joshuto", group = "User Apps"}
+	),
+	awful.key({ modkey, altkey   }, 
+	"l", 
+	function() awful.spawn.with_shell("st -c lf -t LF -e lfrun") end,
+	{description = "Open LF", group = "User Apps"}
+	),
+	awful.key({ modkey, altkey   }, 
+	"t", 
+	function() awful.spawn.with_shell("doublecmd") end,
+	{description = "Open DoubleCommander", group = "User Apps"}
 	),
      awful.key({ modkey, altkey   }, 
         "c", 
@@ -525,9 +535,9 @@ local global_keys = awful.util.table.join(
 		{ modkey, altkey}, 
 		'g',
 		function()
-			awful.spawn('brave')
+			awful.spawn('chromium')
 		end,
-		{description = 'Open Brave', group = 'Launcher'}
+		{description = 'Open Chromium', group = 'Launcher'}
 	),
 	awful.key(
 		{altkey}, 

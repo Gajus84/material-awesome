@@ -244,22 +244,45 @@ ruled.client.connect_signal(
 				--sticky = true
 			}
 		}    
-	-- Ranger
+	-- File Manager Screen 1
 	ruled.client.append_rule {
 		id = 'ranger',
 		rule_any = {
 			instance = {
-					'ranger'
+					'ranger',
+					'lfs1'
 					--'joshuto'
 				},
 			class = {
-					'ranger'
+					'ranger',
+					'lfs1'
 					--'joshuto'
 				},
 		},
 		properties = {
 			tag = '3',
 			screen = 1
+		}
+	}
+	-- File Manager Screen 2
+	ruled.client.append_rule {
+		id = 'files',
+		rule_any = {
+			class = {
+				'joshuto',
+				'krusader',
+				'lfs2',
+				'Doublecmd'
+			},
+			instance = {
+				'lfs2',
+				'joshuto'
+			}
+		},
+		properties = {
+			tag = '3',
+			screen = 2,
+		--	switch_to_tags = true
 		}
 	}
 		-- Browsers and chats
@@ -395,26 +418,7 @@ ruled.client.connect_signal(
 				tag = '9',
 				skip_decoration = true
 			}
-		}
-        -- Files
-		ruled.client.append_rule {
-			id = 'files',
-			rule_any = {
-				class = {
-					'joshuto',
-					'krusader',
-					'Doublecmd'
-				},
-				instance = {
-					'joshuto'
-				}
-			},
-			properties = {
-				tag = '3',
-                screen = 2,
-			--	switch_to_tags = true
-			}
-		}
+		}      
     	-- Floating
 		ruled.client.append_rule {
 			id       = 'floating',

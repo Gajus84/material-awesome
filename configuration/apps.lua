@@ -8,17 +8,17 @@ return {
 		-- Default terminal emulator
 		terminal = 'env st -t "Simple Terminal"',
 		-- Default web browser
-		web_browser = 'env brave',
+		web_browser = 'env librewolf',
 		-- Default text editor
-		text_editor = 'st -c=nvim,nvim -t=LunarVim -e /usr/bin/nvim',
+		text_editor = 'st -c nvim -t LunarVim -e /usr/bin/nvim',
 		-- Default file manager
-		file_manager = 'doublecmd',
+		file_manager = 'st -c lf -t LF -e lfrun',
 		-- Default media player
 		multimedia = 'mpv --player-operation-mode=pseudo-gui',
 		-- Mixer
-		mixer = 'st -c=pulsemixer,pulsemixer -t=Pulsemixer -e /usr/bin/pulsemixer',
+		mixer = 'st -c pulsemixer -t Pulsemixer -e /usr/bin/pulsemixer',
 		-- Default calendar app
-		calendar = 'st -c=ikhal,ikhal -t=Ikhal -e ~/.local/bin/cursekhal',
+		calendar = 'st -c ikhal -t Ikhal -e ~/.local/bin/cursekhal',
 		-- Default game, can be a launcher like steam
 		game = 'env steam',
 		-- Default graphics editor
@@ -26,7 +26,7 @@ return {
 		-- Default sandbox
 		sandbox = 'virtualbox',
 		-- Default IDE
-		mail = 'st -c=neomutt,neomutt -e /usr/bin/neomutt',
+		mail = 'st -c neomutt -e /usr/bin/neomutt',
 		-- Default network manager
 		network_manager = 'nm-connection-editor',
 		-- Default bluetooth manager
@@ -75,10 +75,13 @@ return {
 		'ibus-daemon --xim --daemonize', 
 
 		-- Ranger
-    	'st -c=ranger,ranger -t=Ranger -e ranger',
+    	--'st -c ranger -t Ranger -e ranger',
+
+		--LF
+		--'st -c lf -t LF -e lfrun',
 
 		-- Joshuto
-    	'st -c=joshuto,joshuto -t=Joshuto -e joshuto',
+    	--'st -c joshuto -t Joshuto -e joshuto',
 
 		-- turn on numlock
     	--'numlockx on',
