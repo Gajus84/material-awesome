@@ -41,7 +41,9 @@ theme.accent = theme.system_blue_dark
 
 -- Darker version
 theme.background = '#121e25'-- .. '100'
-
+theme.foreground = theme.background -- '#ffffff' .. '1A'
+theme.urgent = '#E91E63' .. '99'
+theme.focus = '#ffffff' .. '1A' --theme.background
 -- Transparent
 theme.transparent = '#00000000'
 
