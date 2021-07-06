@@ -47,13 +47,31 @@ local return_button = function()
 				function()
 					
 					if update_available then
-						awful.spawn(apps.default.package_manager .. ' --updates', false)
+						awful.spawn.with_shell(apps.default.package_manager .. ' update')
                         
 					else
-						awful.spawn(apps.default.package_manager, false)
+						awful.spawn.with_shell(apps.default.package_manager .. ' install')
 					
 					end
 				end
+			),
+			awful.button(
+				{},
+				2,
+				nil,
+				function()
+					
+						awful.spawn.with_shell(apps.default.package_manager .. ' orphans')  
+					end
+			),
+			awful.button(
+				{},
+				3,
+				nil,
+				function()
+					
+						awful.spawn.with_shell(apps.default.package_manager .. ' uninstall')  
+					end
 			)
 		)
 	)
@@ -79,10 +97,10 @@ local return_button = function()
 	)
 
 	watch(
-		'pamac checkupdates',
+		'checkupdates',
 		600,
 		function(_, stdout)
-			number_of_updates_available = tonumber(stdout:match('.-\n'):match('%d*'))
+			number_of_updates_available = tonumber(stdout:match('.\n'))
 			update_package = stdout
 			local icon_name = nil
 			if number_of_updates_available ~= nil then

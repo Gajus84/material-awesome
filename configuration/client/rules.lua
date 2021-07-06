@@ -313,12 +313,17 @@ ruled.client.connect_signal(
 					'UXTerm',
 					'kitty',
 					'K3rmit',
+					'pacAUR-tui',
 					--'Alacritty',
                     'Pamac-manager'
+				},
+				instance = {
+					'pacAUR-tui'
 				}
 			},
 			properties = {
 				switch_to_tags = true,
+				raise = true,
 				size_hints_honor = false,
 				titlebars_enabled = false
 			}

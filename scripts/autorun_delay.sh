@@ -11,10 +11,5 @@ function run {
 sleep 10
 st -c lfs1 -t LF -e lfrun &
 st -c lfs2 -t LF -e lfrun &
-#st -c joshuto -t Joshuto -e joshuto &
 sleep 20
-#run opensnitch-ui &
-#sleep 5
-#run /var/lib/portmaster/portmaster-start notifier --data=/var/lib/portmaster &
 run kdeconnect-indicator &
-#run indicator-kdeconnect &

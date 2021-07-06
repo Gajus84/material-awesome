@@ -34,7 +34,7 @@ return {
 		-- Default power manager (leaving this here as example)
 		power_manager = 'mate-power-manager',
 		-- Default GUI package manager
-		package_manager = 'pamac-manager',
+		package_manager = 'st -c pacAUR-tui -t pacAUR-tui -e pacAUR-tui',
 		-- Default locker
 		lock = 'betterlockscreen -l dim & qdbus org.keepassxc.KeePassXC.MainWindow /keepassxc org.keepassxc.MainWindow.lockAllDatabases',
 		-- Default quake terminal

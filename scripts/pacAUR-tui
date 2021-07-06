@@ -1,0 +1,28 @@
+#!/bin/sh
+
+case "$1" in
+install)
+    paru -Slq | fzf --multi --preview 'paru -Si {1}' --reverse| xargs -ro sudo paru -S
+    read -n 1 -s -r -p $'Quit With Any Key\n'
+    exit
+    ;;
+uninstall)
+    paru -Qq | fzf --multi --preview 'paru -Ql {1}' --reverse| xargs -ro sudo paru -Rns
+    read -n 1 -s -r -p $'Quit With Any Key\n'
+    exit
+    ;;
+orphans)
+    paru -Qdt | fzf --multi --preview 'paru -Qi {1}' --reverse| xargs -ro sudo paru -Rns
+    read -n 1 -s -r -p $'Quit With Any Key\n'
+    exit
+    ;;
+update)
+    sudo pacman -Syu && paru -Sua
+    read -n 1 -s -r -p $'Quit With Any Key\n'
+    exit
+    ;;
+*)
+    echo "Usage: $0 {install|uninstall|orphans}"
+    exit 1
+    ;;
+esac
