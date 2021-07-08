@@ -117,6 +117,27 @@ local return_button = function()
 		end
 	)
 
+	watch(
+		'checkupdates-aur',
+		610,
+		function(_, stdout)
+			number_of_updates_available = tonumber(stdout:match('.\n'))
+			update_package = stdout
+			local icon_name = nil
+			if number_of_updates_available ~= nil then
+				update_available = true
+				icon_name = 'package-up'
+			else
+				update_available = false
+				icon_name = 'package'
+				
+			end
+
+			widget.icon:set_image(widget_icon_dir .. icon_name .. '.svg')
+			collectgarbage('collect')
+		end
+	)
+
 	return widget_button
 end
 
