@@ -68,11 +68,6 @@ local global_keys = awful.util.table.join(
 	function() awful.spawn.with_shell("quodlibet") end,
 	{description = "Open Quod Libet", group = "User Apps"}
 	),
-	awful.key({ modkey   }, 
-	"p", 
-	function() awful.spawn.with_shell("st -c castero -t castero -e castero") end,
-	{description = "Open Castero", group = "User Apps"}
-	),
 	-- awful.key({ modkey, altkey   }, 
 	-- "r", 
 	-- function() awful.spawn.with_shell("st -c ranger -t Ranger -e ranger") end,
@@ -480,6 +475,14 @@ local global_keys = awful.util.table.join(
 			awesome.emit_signal('module::quake_terminal:toggle')
 		end,
 		{description = 'dropdown application', group = 'Launcher'}
+	),
+	awful.key(
+		{modkey},
+		'p',
+		function()
+			awesome.emit_signal('module::quake_player:toggle')
+		end,
+		{description = 'dropdown player', group = 'Launcher'}
 	),
 	awful.key(
 		{modkey}, 

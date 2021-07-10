@@ -39,6 +39,8 @@ return {
 		lock = 'betterlockscreen -l dim & qdbus org.keepassxc.KeePassXC.MainWindow /keepassxc org.keepassxc.MainWindow.lockAllDatabases',
 		-- Default quake terminal
 		quake = 'env alacritty --title QuakeTerminal',
+		-- Default quake Player
+		quake_player = 'env st -t QuakePlayer -e castero',
 		
 		-- Default rofi global menu (This is not used in material-awesome as it sometimes froze rofi completely)
 		-- kept in the config in-case anyone wants to take a crack at supporting it

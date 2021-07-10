@@ -147,6 +147,23 @@ ruled.client.connect_signal(
 			}
 		}
 
+		-- Quake Player
+		ruled.client.append_rule {
+			id = 'quake_player',
+			rule_any = {
+			name = {
+				'QuakePlayer'
+		}
+	},
+		properties = {
+			-- Make the window floating
+			floating = true,
+
+			-- Make the window stick to ALL tags/workspaces (this is what lets you toggle it on all tags)
+			sticky = true
+			}
+		}
+
 		-- Floating windows
 		ruled.client.append_rule {
 			id = 'floatingwindows',
