@@ -127,7 +127,7 @@ return {
 		-- Hikari's screenshot utilities (requires ksnip to be installed)
 		screenshot = utils_dir .. 'screenshot -m -s',
 		region_screenshot = utils_dir .. 'screenshot -r -s',
-		delayed_screenshot = utils_dir .. 'screenshot -d 10 -r',
+		delayed_screenshot = utils_dir .. 'screenshot -d 5 -c -r -s',
 		ss_and_edit_screenshot = utils_dir .. 'screenshot -r',
 
 		-- Other screenshot utilities using maim
